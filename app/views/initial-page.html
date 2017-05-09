@@ -1,0 +1,187 @@
+<div class="container">
+  <div class="initial-page">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="initial-page-header">
+          <h3><b>Seja bem-vindo(a)!</b></h3>
+          Esta é a Overtech, um fórum de dúvidas criada por fatecanos e que tem como principal e único objetivo ajudar
+          os alunos da Faculdade de Tecnologia de Jundiaí a tirar suas dúvidas para com relação a qualquer assunto existente.
+        </div>
+      </div>
+    </div>
+    <div class="initial-page-body">
+      <div class="row">
+        <div class="col-sm-7">
+          <div class="image-carousel">
+            <i class="fa fa-angle-right" id="angle-right" ng-click="changeImage(image)"></i>
+            <i class="fa fa-angle-left" id="angle-left" ng-click="changeImage(image)"></i>
+            <div class="first-image" ng-if="image == 1">
+              <img src="images/image-3.jpg" width="100%" height="400px">
+              <h4>Olá! Vamos conversar um pouco?</h4>
+              <p>Leia este artigo para compreender um pouco sobre o sistema <i class="fa fa-heart" style="color:#C44D58"></i></p>
+            </div>
+            <div class="second-image" ng-if="image == 2">
+              <img src="images/image-4.jpg" width="100%" height="400px">
+              <h4><b>O que mudou?</b></h4>
+              <p>Fique por dentro de todas as alterações do sistema <i class="fa fa-heart" style="color:#C44D58"></i></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5">
+          <h4><b>Perguntou, a solução encontrou!</b></h4>
+          Sentiu a necessidade de tirar uma dúvida? Não pense duas vezes! Utilize agora mesmo o nosso sistema para esclarecer suas dúvidas o mais
+          rápido possível.
+          <h4><b>Entenda o sistema!</b></h4>
+          Só aprendemos com a utilização, então comece agora mesmo a criar e submeter informações. Selecione o que deseja encontrar:<br>
+          <div class="align-items-center">
+            <div class="categories-div" ui-sref="available-categories">
+              <i class="fa fa-info"></i><br>
+              <span style="font-size:15px">Perguntas</span>
+            </div>
+            <div class="categories-div" ui-sref="new-question">
+              <i class="fa fa-users"></i>
+              <span style="font-size:15px">Respostas</span>
+            </div>
+            <div class="categories-div" ui-sref="uploaded-files">
+              <i class="fa fa-cogs"></i>
+              <span style="font-size:15px">Arquivos</span>
+            </div>
+            <div class="categories-div">
+              <i class="fa fa-thumbs-up"></i><br>
+              <span style="font-size:15px">Suporte</span>
+            </div>
+          </div>
+          <div class="align-items-center">
+            <div class="categories-div">
+              <i class="fa fa-newspaper-o"></i><br>
+              <span style="font-size:15px">Artigos</span>
+            </div>
+            <div class="categories-div" ui-sref="users">
+              <i class="fa fa-user-circle"></i><br>
+              <span style="font-size:15px">Amigos</span>
+            </div>
+            <div class="categories-div">
+              <i class="fa fa-smile-o"></i><br>
+              <span style="font-size:15px">Ajuda</span>
+            </div>
+            <div class="categories-div" onclick="window.open('https://github.com/GilbertoGiro','_blank')">
+              <i class="fa fa-github-alt"></i><br>
+              <span style="font-size:15px">Código</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" id="spacing-top">
+        <div class="col-sm-12">
+          <h4><b>Ajude e cresça ao mesmo tempo:</b></h4>
+          Ao mesmo tempo em que você ajuda seus amigos, eles também te ajudam com suas dúvidas. O objetivo é criar um ambiente de cooperação e amizade para facilitar o aprendizado, possibilitando
+          uma alternativa amigável e intuitiva para as horas de pesquisa e leitura.
+          <div class="success-steps">
+            <div class="step">
+              <figure>
+                <img src="icons/png/boss-1.png" width="65%">
+                <figcaption><b>Crie sua conta</b></figcaption>
+              </figure>
+            </div>
+            <i class="fa fa-arrow-right"></i>
+            <div class="step">
+              <figure>
+                <img src="icons/png/collaboration.png" width="65%">
+                <figcaption><b>Ajude seus amigos</b></figcaption>
+              </figure>
+            </div>
+            <i class="fa fa-arrow-right"></i>
+            <div class="step">
+              <figure>
+                <img src="icons/png/desktop.png" width="65%">
+                <figcaption><b>Produza conteúdo</b></figcaption>
+              </figure>
+            </div>
+            <i class="fa fa-arrow-right"></i>
+            <div class="step">
+              <figure>
+                <img src="icons/png/network-1.png" width="65%">
+                <figcaption><b>Tire suas dúvidas</b></figcaption>
+              </figure>
+            </div>
+            <i class="fa fa-arrow-right"></i>
+            <div class="step">
+              <figure>
+                <img src="icons/png/graduate.png" width="65%">
+                <figcaption><b>Cresça profissionalmente</b></figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <h4><b>O que são Categorias? Como crio elas?</b></h4>
+          Nosso ambiente trabalha com um sistema de categorias para a estruturação das informações de maneira separada. As categorias são as matérias
+          para com a qual o usuário tem associação. É importante começar constando que por padrão, o usuário já está inscrito em todas as categorias(matérias)
+          de seu curso e semestre, porém que em caso de restrições, este pode cadastrar-se em alguma outra matéria adicional que esteja cursando no semestre em que
+          se encontra. No momento ainda não permitimos que os usuários cadastrem categorias, mas logo esta funcionalidade será adicionada ao sistema. Caso queira, você pode
+          acompanhar as novidades da aplicação entrando em nosso repositório no <b>github</b>.
+        </div>
+      </div>
+      <div class="row" id="spacing-top">
+        <div class="col-sm-12">
+          <h4><b>Tudo bem! Mas como cadastro uma pergunta?</b></h4>
+          Vamos lá! Em primeiro lugar é importante que você saiba que antes que seja possível que você cadastre alguma pergunta, será necessário que você efetue seu cadastro
+          em nosso sistema. Para efetuar o seu cadastro, basta <a href="" ng-click="registerModal()">clicar aqui</a> ou então seguir o passo a passo abaixo:
+        </div>
+        <div class="category-steps">
+          <div class="col-sm-4">
+            <b>1° Passo:</b> Antes que você possa efetuar o cadastro de uma pergunta, será necessário se cadastrar em nosso sistema. Para se cadastrar,
+            basta <a href="" ng-click="registerModal()">clicar aqui</a>.
+          </div>
+          <div class="col-sm-4">
+            <b>2° Passo:</b> Assim que já estiver cadastrado, basta apenas entrar na página de cadastro de perguntas, associar a pergunta a uma categoria
+            e em seguida <b>Finalizar</b>.
+          </div>
+          <div class="col-sm-4">
+            <b>3° Passo:</b> Após realizar o procedimento acima, basta <a ui-sref="news">clicar aqui</a> para acompanhar as respostas enviadas por usuários para as suas perguntas.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div success-reconnect ng-if="reconnected"></div>
+<div loading-server ng-if="loading"></div>
+<div timeout-error ng-if="timeout_error"></div>
+<div db-not-responding ng-if="db_not_responding"></div>
+<div class="container-fluid">
+  <div class="footer">
+    <div class="row">
+      <div class="col-sm-3">
+        <h4><b>Ícones e imagens:</b></h4>
+        Todas as imagens encontradas aqui foram retiradas do seguinte site: <b>http://www.flaticon.com/</b><br>
+        <div style="margin-top:3px">
+          - Icons made by <a title="Flat Icons" href="http://www.flaticon.com/authors/flat-icons">Flat Icons</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Freepik" href="http://www.freepik.com">Freepik</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Eucalyp" href="http://www.flaticon.com/authors/eucalyp"> Eucalyp</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Popcorns Arts" href="http://www.flaticon.com/authors/popcorns-arts">Popcorns Arts</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Quem somos?</b></h4>
+        Para entrar em contato conosco, basta enviar uma mensagem para <b>gilberto.giro.resende@gmail.com</b> ou então enviar uma mensagem
+        de texto para o número <b>(11)97565-4389</b>.
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Informações do aplicativo</b></h4>
+        Para visualizar as informações mais específicas da aplicação, basta <a href="">clicar aqui</a>. Nesta página você pode visualizar informações como,
+        tecnologias utilizadas, documentação da aplicação, manual de uso, etc.
+      </div>
+      <div class="col-sm-3" id="icons-bottom">
+        <div class="text-left">
+          <h4><b>Compartilhe com os amigos:</b></h4>
+          Por favor, assim que possível, compartilhe nossa aplicação com seus amigos para que ela passe a atingir um público considerável
+          de estudantes para que possamos criar um ambiente de estudos bem estruturado.
+        </div>
+        <a href="" class="i-color"><i class="fa fa-facebook-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-google-plus-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+<div class="container" ng-if="menu_loaded && !reconnected" ng-init="check_category(categories)">
+  <div class="upload-files" ng-if="!db_not_responding && !statusText" ng-init="findUploads()">
+    <div class="upload-files-header">
+      <h3><b>Arquivos já submetidos:</b></h3>
+      Visualize aqui todos os arquivos que foram submetidos por usuários que também estão cursando esta matéria em sua faculdade. É <b>importante</b> ressaltar que você só poderá baixar e/ou
+      submeter arquivos no sistema se estiver cadastrado na aplicação.
+    </div>
+    <div class="upload-files-body">
+      <div class="uploads-filter" style="margin-top:8px">
+        <form ng-submit="filterUploads(search)">
+          <input type="text" class="form-input" placeholder="O que você busca?" ng-model="search.name">
+          <button type="submit" class="form-input">Buscar <i class="fa fa-globe"></i></button>
+          <button type="button" class="form-input" id="right" ng-click="sendArchives()">Enviar arquivo <i class="fa fa-file"></i></button>
+        </form>
+      </div>
+      <table class="uploads-table">
+        <thead>
+          <tr>
+            <th>Nome arquivo</th>
+            <th>Matéria relacionada</th>
+            <th>Tipo arquivo</th>
+            <th>Data upload</th>
+            <th>
+              Baixar
+              <i class="fa fa-bookmark" id="right"></i>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-if="uploads.length > 0" ng-repeat="archive in some_uploads">
+            <td style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis">{{archive.name}}</td>
+            <td style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis">{{archive.matter}}</td>
+            <td>{{archive.type}}</td>
+            <td>{{archive.creation_date | date:'dd/MM/yyyy'}}</td>
+            <td><a target="_self" href="{{archive.path}}" download="{{archive.name}}">Baixar arquivo <i class="fa fa-download"></i></a></td>
+          </tr>
+          <tr>
+            <td colspan="5" ng-if="uploads.length == 0 || some_uploads.length == 0">Nenhum arquivo encontrado <i class="fa fa-flag"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div status-text ng-if="statusText"></div>
+<div server-error ng-if="db_not_responding"></div>
+<div success-reconnect ng-if="reconnected"></div>
+<div loading-server ng-if="loading"></div>
+<div timeout-error ng-if="timeout_error"></div>
+<div db-not-responding ng-if="db_not_responding"></div>
+<div class="container-fluid">
+  <div class="footer">
+    <div class="row">
+      <div class="col-sm-3">
+        <h4><b>Ícones e imagens:</b></h4>
+        Todas as imagens encontradas aqui foram retiradas do seguinte site: <b>http://www.flaticon.com/</b><br>
+        <div style="margin-top:3px">
+          - Icons made by <a title="Flat Icons" href="http://www.flaticon.com/authors/flat-icons">Flat Icons</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Freepik" href="http://www.freepik.com">Freepik</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Eucalyp" href="http://www.flaticon.com/authors/eucalyp"> Eucalyp</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Popcorns Arts" href="http://www.flaticon.com/authors/popcorns-arts">Popcorns Arts</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Quem somos?</b></h4>
+        Para entrar em contato conosco, basta enviar uma mensagem para <b>gilberto.giro.resende@gmail.com</b> ou então enviar uma mensagem
+        de texto para o número <b>(11)97565-4389</b>.
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Informações do aplicativo</b></h4>
+        Para visualizar as informações mais específicas da aplicação, basta <a href="">clicar aqui</a>. Nesta página você pode visualizar informações como,
+        tecnologias utilizadas, documentação da aplicação, manual de uso, etc.
+      </div>
+      <div class="col-sm-3" id="icons-bottom">
+        <div class="text-left">
+          <h4><b>Compartilhe com os amigos:</b></h4>
+          Por favor, assim que possível, compartilhe nossa aplicação com seus amigos para que ela passe a atingir um público considerável
+          de estudantes para que possamos criar um ambiente de estudos bem estruturado.
+        </div>
+        <a href="" class="i-color"><i class="fa fa-facebook-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-google-plus-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

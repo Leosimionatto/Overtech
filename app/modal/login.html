@@ -1,0 +1,25 @@
+<div class="modal-content" id="login-system">
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="close()">&times;</button>
+    <h5 class="modal-title"><b>Já possui uma conta? Efetue o login agora mesmo!</b></h5>
+  </div>
+  <div class="modal-body">
+    <div class="img">
+      <img src="icons/png/network.png" width="30%">
+    </div>
+    Caso você já tenha uma conta cadastrada em nossa aplicação, basta efetuar o seu login para que possa utilizar de todas as funcionalidades
+    da mesma. Ainda não possui uma conta? Basta <a href="">clicar aqui</a> e criar agora mesmo.
+    <form class="login-form" ng-submit="login(user)">
+      <input type="email" ng-class="{incorrect_fields:message_error}" placeholder="Qual o seu email?" ng-model="user.name" class="form-input" ng-required="true"><br>
+      <input type="password" ng-class="{incorrect_fields:message_error}" placeholder="Qual a sua senha?" ng-model="user.password" class="form-input" ng-required="true"><br>
+      <button type="submit" class="btn btn-success" ng-if="!loading && !success_login">Efetuar o login <i class="fa fa-coffee"></i></button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" ng-click="close()" class="btn btn-default">Cancelar</button>
+  </div>
+</div>
+<div class="success-message" ng-if="success_login">
+  Login efetuado com sucesso! Você será redirecionado...
+</div>
+<div incorrect-fields ng-if="incorrect_fields"></div>

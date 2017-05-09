@@ -1,0 +1,124 @@
+<div class="container" ng-if="menu_loaded && !reconnected" ng-init="someCategories(categories)">
+  <div class="upload-files" ng-if="some_categories && categories">
+    <div class="upload-files-header">
+      <h3><b>Arquivos de upload:</b></h3>
+      Selecione alguma das categorias disponibilizadas abaixo para visualizar os arquivos de upload dos seus colegas de curso e/ou faculdade.
+    </div>
+    <div class="upload-files-body">
+      <div class="text-center" style="margin-top:6px;margin-bottom:10px">
+        <h4><b>Mas como funciona o sistema de arquivos?</b></h4>
+        <p>Com o passo a passo abaixo você compreenderá esse funcionamento de maneira bem simples e prática!</p>
+      </div>
+      <div class="steps">
+        <figure>
+          <img src="icons/png/ereader.png" width="80px">
+          <figcaption><b>Compartilhe seus estudos com seus colegas</b></figcaption>
+        </figure>
+        <i class="fa fa-arrow-right"></i>
+        <figure>
+          <img src="icons/png/businessman-1.png" width="80px">
+          <figcaption><b>Seus amigos baixam e contribuem com essa "comunidade"</b></figcaption>
+        </figure>
+        <i class="fa fa-arrow-right"></i>
+        <figure>
+          <img src="icons/png/check-mark.png" width="80px">
+          <figcaption><b>Você recebe auxílio nas matérias que tem dificuldade</b></figcaption>
+        </figure>
+        <i class="fa fa-arrow-right"></i>
+        <figure>
+          <img src="icons/png/maps-and-flags-3.png" width="80px">
+          <figcaption><b>E então todos aprendem os conteúdos</b></figcaption>
+        </figure>
+      </div>
+      <div class="uploads-body-list">
+        <div class="uploads-filter">
+          <span class="title">Encontre o que busca!</span>
+          <span class="block" style="margin-bottom:4px">Visualize apenas aquilo o que busca! Sem mais, nem menos!</span>
+          <form ng-submit="filterCategories(some_categories)">
+            <input type="text" ng-model="search.name" class="form-input" placeholder="O que você busca?">
+            <button type="submit" class="form-input">Buscar <i class="fa fa-globe"></i></button>
+          </form>
+        </div>
+        <div>
+          <table class="uploads-table">
+            <thead>
+              <tr>
+                <th>Categoria</th>
+                <th>Curso</th>
+                <th>Semestre</th>
+                <th>
+                  Visualizar arquivos
+                  <i class="fa fa-bookmark" id="right"></i>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="category in some_categories" ng-if="some_categories.length > 0">
+                <td class="category-name">
+                  <span class="block"><b>{{category.name}}</b></span>
+                  Visualize todos os arquivos disponibilizados nessa categoria
+                </td>
+                <td>{{courses[category.course - 1].name}}</td>
+                <td>{{category.semester}}º semestre</td>
+                <td><a href="" ng-click="checkUploads(category.id)">Lista de arquivos <i class="fa fa-archive"></i></a></td>
+              </tr>
+              <tr ng-if="some_categories.length <= 0">
+                <td colspan="4">Nenhuma categoria encontrada com as informações dadas <i class="fa fa-flag"></i></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <td>{{some_categories.length}} de {{categories.length}}</td>
+              <td colspan="3" ng-if="some_categories.length != categories.length">
+                <a href="" id="right" ng-click="showMore(cont)">Visualizar mais categorias <i class="fa fa-plus-circle"></i></a>
+              </td>
+              <td colspan="3" ng-if="some_categories.length == categories.length">
+                <a href="" id="right" ng-if="some_categories.length == categories.length && categories.length > 0" ng-click="showLess(categories)">Visualizar menos categorias <i class="fa fa-minus-square"></i></a>
+              </td>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div server-error ng-if="db_not_responding"></div>
+<div success-reconnect ng-if="reconnected"></div>
+<div loading-server ng-if="loading"></div>
+<div timeout-error ng-if="timeout_error"></div>
+<div db-not-responding ng-if="db_not_responding"></div>
+<div class="container-fluid">
+  <div class="footer">
+    <div class="row">
+      <div class="col-sm-3">
+        <h4><b>Ícones e imagens:</b></h4>
+        Todas as imagens encontradas aqui foram retiradas do seguinte site: <b>http://www.flaticon.com/</b><br>
+        <div style="margin-top:3px">
+          - Icons made by <a title="Flat Icons" href="http://www.flaticon.com/authors/flat-icons">Flat Icons</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Freepik" href="http://www.freepik.com">Freepik</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Eucalyp" href="http://www.flaticon.com/authors/eucalyp"> Eucalyp</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Popcorns Arts" href="http://www.flaticon.com/authors/popcorns-arts">Popcorns Arts</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Quem somos?</b></h4>
+        Para entrar em contato conosco, basta enviar uma mensagem para <b>gilberto.giro.resende@gmail.com</b> ou então enviar uma mensagem
+        de texto para o número <b>(11)97565-4389</b>.
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Informações do aplicativo</b></h4>
+        Para visualizar as informações mais específicas da aplicação, basta <a href="">clicar aqui</a>. Nesta página você pode visualizar informações como,
+        tecnologias utilizadas, documentação da aplicação, manual de uso, etc.
+      </div>
+      <div class="col-sm-3" id="icons-bottom">
+        <div class="text-left">
+          <h4><b>Compartilhe com os amigos:</b></h4>
+          Por favor, assim que possível, compartilhe nossa aplicação com seus amigos para que ela passe a atingir um público considerável
+          de estudantes para que possamos criar um ambiente de estudos bem estruturado.
+        </div>
+        <a href="" class="i-color"><i class="fa fa-facebook-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-google-plus-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

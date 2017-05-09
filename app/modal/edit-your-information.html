@@ -1,0 +1,32 @@
+<div class="modal-content" id="edit-information">
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="$dismiss()">&times;</button>
+    <h4 class="modal-title"><b>Deseja editar suas informações?</b></h4>
+  </div>
+  <div class="modal-body">
+    <div style="margin-bottom:3px">
+      <h5><b>Vamos lá? Eu te mostro como é simples <i class="fa fa-heart" style="color:#C44D58"></i></b></h5>
+      Para alterar as suas informações, você precisará apenas preencher todas as informações abaixo e em seguida clicar em <b>Salvar alterações</b>.
+    </div>
+    <form class="login-form" ng-submit="save_edited_information(edit_user)">
+      <input type="text" ng-class="{invalid_params:edit_error}" placeholder="Qual o nome?" ng-model="edit_user.name" ng-value="user.name" class="form-input" ng-required="true"><br>
+      <input type="number" ng-class="{invalid_params:edit_error}" placeholder="Qual sua idade?" min="17" max="90" ng-model="edit_user.age" ng-value="user.age" class="form-input" ng-required="true"><br>
+      <input type="number" ng-class="{invalid_params:edit_error}" placeholder="Qual seu semestre?" ng-model="edit_user.semester" min="1" max="6" ng-value="user.semester" class="form-input" ng-required="true"><br>
+      <select ng-model="edit_user.course" class="form-input" ng-class="{invalid_params:edit_error}" ng-options="course.id as course.name for course in courses">
+        <option value="">Qual seu curso?</option>
+      </select>
+      <input type="email" ng-class="{invalid_params:edit_error}" placeholder="Qual seu email?" ng-value="user.email" ng-model="edit_user.email" class="form-input" ng-required="true"><br>
+      <button type="submit" class="btn btn-success" style="margin-top:6px">Salvar as alterações <i class="fa fa-coffee"></i></button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" ng-click="$dismiss()" class="btn btn-default">Cancelar</button>
+  </div>
+</div>
+<div global-error ng-if="global_error"></div>
+<div class="error-message" ng-if="edit_error">
+  Mensagem de erro - Dados incorretos
+</div>
+<div class="success-message" ng-if="information_edited">
+  <b>Sucesso!!</b> - Suas alterações foram realizadas com sucesso!
+</div>

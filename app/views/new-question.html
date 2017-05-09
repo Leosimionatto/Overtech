@@ -1,0 +1,131 @@
+<div class="container" ng-if="menu_loaded && !reconnected" ng-init="load_content()">
+  <div class="new-question" ng-if="your_information || load">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="new-question-header">
+          <h3><b>Deseja registrar uma pergunta?</b></h3>
+          Registre agora mesmo a sua dúvida para que outros usuários possam ajudá-lo a resolve-la o mais rápido possível. Para realizar este procedimento, basta seguir o passo
+          a passo abaixo. Garanto que não vai demorar mais do que 3 minutos <i class="fa fa-heart" style="color:#C44D58"></i>
+        </div>
+      </div>
+    </div>
+    <div class="new-question-body">
+      <div class="row">
+        <div class="col-sm-12" style="margin-top:10px">
+          <h4><b>Quer uma dica para o sucesso?</b></h4>
+          Não perca tanto o seu tempo realizando pesquisas extensas a procura de uma solução e comece agora mesmo a utilizar o nosso sistema para sanar suas dúvidas. Você cadastra sua pergunta e pronto,
+          basta aguardar que algum usuário que já vivenciou a situação apresentada lhe forneça a solução.
+          <div class="register-question">
+            <figure>
+              <img src="icons/png/student.png" width="40%">
+              <figcaption><b>Cadastre sua pergunta em uma categoria</b></figcaption>
+            </figure>
+            <i class="fa fa-arrow-right"></i>
+            <figure>
+              <img src="icons/png/email.png" width="40%">
+              <figcaption><b>Divulgue-a nos meios disponibilizados</b></figcaption>
+            </figure>
+            <i class="fa fa-arrow-right"></i>
+            <figure>
+              <img src="icons/png/chat.png" width="40%">
+              <figcaption><b>Caso necessário, pergunte aos seus amigos</b></figcaption>
+            </figure>
+            <i class="fa fa-arrow-right"></i>
+            <figure>
+              <img src="icons/png/bars-chart-1.png" width="40%">
+              <figcaption><b>Receba sua resposta até 10x mais rápido do que em uma pesquisa comum</b></figcaption>
+            </figure>
+          </div>
+          <h4><b>Como cadastrar uma pergunta?</b></h4>
+          Para cadastrar uma pergunta, a única coisa que você deverá fazer, será preencher todas as informações que serão requeridas abaixo. Garanto que este processo não vai demorar mais do que <b>3 minutos</b>!
+          É um procedimento simples, rápido e intuitivo de apenas 3 passos.
+        </div>
+        <div class="col-sm-4" id="steps" ng-class="{disabled:level_2 || level_3}" ng-click="step_1()">
+          <h4><b><span class="badge badge-color">1</span> Informações da pergunta:</b></h4>
+          <form class="new-question-form" ng-submit="step_2(question)">
+            <input type="text" ng-model="question.title" class="form-input" placeholder="Título da pergunta?" ng-required="true">
+            <textarea class="form-textarea" ng-model="question.body" placeholder="Informações adicionais sobre a pergunta, como por exemplo, o que você tentou, quais as tecnologias envolvidas, etc..." ng-required="true"></textarea>
+            <!-- <label for="loginFile" class="file-button">Anexar arquivo? <i class="fa fa-file-image-o"></i></label>
+            <input type="file" ng-model="question.archive" id="loginFile"> -->
+            <button type="submit" class="a-class">Ir para a próxima etapa <i class="fa fa-arrow-right"></i></button>
+          </form>
+        </div>
+        <div class="col-sm-4" id="steps" ng-class="{disabled:level_1 || level_3}" ng-click="step_2(question)">
+          <h4><b><span class="badge badge-color">2</span> Categoria relacionada:</b></h4>
+          <form ng-submit="step_3(question)" class="new-question-form">
+            Nesta etapa você deve selecionar a categoria para com a qual esta pergunta estará associada. Lembre-se sempre de conferir se a categoria
+            é essa mesmo, pois assim que esta pergunta for submetida, não poderão ser feitas alterações relacionadas a este tópico.<br>
+            <select class="form-input" style="width:75%;margin-top:8px;margin-bottom:4px" ng-model="question.category" ng-options="category.id as category.name for category in categories" ng-disabled="!level_2" ng-required="true">
+              <option value="">Qual a categoria?</option>
+            </select><br>
+            <button type="submit" class="a-class">Ir para a próxima etapa <i class="fa fa-arrow-right"></i></button>
+          </form>
+        </div>
+        <div class="col-sm-4" id="steps" ng-class="{disabled:level_1 || level_2}" ng-click="step_3(question)">
+          <h4><b><span class="badge badge-color">3</span> Requisitar ajuda:</b></h4>
+          <form ng-submit="insert_question(question)" class="new-question-form">
+            Caso seja necessário, nosso sistema disponibiliza um meio realizar a divulgação da pergunta que está sendo criada!.<br>
+            <span style="font-size:11px" class="block"><b>Obs.</b> Essa funcionalidade será disponibilizada logo!</span>
+            <!-- Lembre-se que através da divulgação, sua pergunta será respondida mais rápido! -->
+            <!-- <select class="form-input" style="width:55%;margin-top:4px;margin-bottom:2px" ng-model="question.disclosure" ng-options="question.disclosure for question in disclosures" ng-disabled="!level_3" ng-required="true">
+              <option value="">Deseja divulgar?</option>
+            </select> -->
+            <button type="submit" class="finish" ng-if="!loading && !success_create">Finalizar <i class="fa fa-coffee"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="unlogged" ng-if="empty_fields">
+  <b>Mensagem de erro</b> - Preencha os campos vazios para prosseguir
+</div>
+<div class="unlogged" ng-if="exists_question">
+  <b>Mensagem de erro - </b> Essa questão já está cadastrada!
+</div>
+<div class="success-reconnect" ng-if="success_create">
+  <b>Mensagem de sucesso</b> - Questão criada com sucesso!
+</div>
+<div status-text ng-if="statusText"></div>
+<div server-error ng-if="db_not_responding"></div>
+<div success-reconnect ng-if="reconnected"></div>
+<div loading-server ng-if="loading"></div>
+<div timeout-error ng-if="timeout_error"></div>
+<div db-not-responding ng-if="db_not_responding"></div>
+<div unlogged ng-if="unlogged"></div>
+<div class="container-fluid">
+  <div class="footer">
+    <div class="row">
+      <div class="col-sm-3">
+        <h4><b>Ícones e imagens:</b></h4>
+        Todas as imagens encontradas aqui foram retiradas do seguinte site: <b>http://www.flaticon.com/</b><br>
+        <div style="margin-top:3px">
+          - Icons made by <a title="Flat Icons" href="http://www.flaticon.com/authors/flat-icons">Flat Icons</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Freepik" href="http://www.freepik.com">Freepik</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Eucalyp" href="http://www.flaticon.com/authors/eucalyp"> Eucalyp</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Popcorns Arts" href="http://www.flaticon.com/authors/popcorns-arts">Popcorns Arts</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Quem somos?</b></h4>
+        Para entrar em contato conosco, basta enviar uma mensagem para <b>gilberto.giro.resende@gmail.com</b> ou então enviar uma mensagem
+        de texto para o número <b>(11)97565-4389</b>.
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Informações do aplicativo</b></h4>
+        Para visualizar as informações mais específicas da aplicação, basta <a href="">clicar aqui</a>. Nesta página você pode visualizar informações como,
+        tecnologias utilizadas, documentação da aplicação, manual de uso, etc.
+      </div>
+      <div class="col-sm-3" id="icons-bottom">
+        <div class="text-left">
+          <h4><b>Compartilhe com os amigos:</b></h4>
+          Por favor, assim que possível, compartilhe nossa aplicação com seus amigos para que ela passe a atingir um público considerável
+          de estudantes para que possamos criar um ambiente de estudos bem estruturado.
+        </div>
+        <a href="" class="i-color"><i class="fa fa-facebook-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-google-plus-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

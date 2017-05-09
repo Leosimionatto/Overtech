@@ -1,0 +1,38 @@
+<div class="modal-content" id="login-system">
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="close()">&times;</button>
+    <h5 class="modal-title"><b>Não possui uma conta? Crie agora mesmo!</b></h5>
+  </div>
+  <div class="modal-body">
+    <div class="img">
+      <img src="icons/png/workspace.png" width="28%">
+    </div>
+    Para criar uma conta basta preencher as informações abaixo e clicar em prosseguir. É um procedimento extremamente simples, garanto que
+    não levará mais do que 5 minutos.
+    <form class="login-form" ng-submit="check_information(new_user)">
+      <input type="text" ng-class="{invalid_params:register_error}" ng-model="new_user.name" placeholder="Qual o seu nome?" class="form-input" ng-required="true"><br>
+      <input type="number" ng-class="{invalid_params:register_error}" ng-model="new_user.age" placeholder="Qual sua idade?" class="form-input" ng-required="true"><br>
+      <input type="email" ng-class="{invalid_params:register_error}" ng-model="new_user.email"  placeholder="Qual o seu email?" class="form-input" ng-required="true"><br>
+      <input type="number" min="1" max="6" ng-class="{invalid_params:register_error}" ng-model="new_user.semester" placeholder="Qual o seu semestre?" class="form-input" ng-required="true"><br>
+      <select class="form-input" ng-class="{invalid_params:register_error}" ng-model="new_user.course" ng-options="course.id as course.name for course in courses" ng-required="true">
+        <option value="">Selecione uma opção</option>
+      </select>
+      <input type="password" ng-class="{invalid_params:register_error || password_error}" ng-model="new_user.password" placeholder="Qual sua senha?" class="form-input" ng-required="true"><br>
+      <input type="password" ng-class="{invalid_params:register_error || password_error}" ng-model="new_user.repeat_password" placeholder="Repita sua senha" class="form-input" ng-required="true"><br>
+      <button type="submit" class="btn btn-success" ng-if="!loading && !success_proccess">Efetuar o cadastro <i class="fa fa-ticket"></i></button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" ng-click="close()" class="btn btn-default">Cancelar</button>
+  </div>
+</div>
+<div incorrect-fields ng-if="incorrect_fields"></div>
+<div class="error-message" ng-if="register_error">
+  Mensagem de erro - O E-mail informado é inválido!
+</div>
+<div class="error-message" ng-if="password_error">
+  Mensagem de erro - As senhas não coincidem
+</div>
+<div class="success-message" ng-if="success_proccess">
+  Conta criada com sucesso! Você será redirecionado em alguns segundos <i class="fa fa-magic"></i>
+</div>

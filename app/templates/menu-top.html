@@ -1,0 +1,48 @@
+<!-- Meus arquivos de Jquery -->
+<script src="js/jquery-functions/functions.js"></script>
+
+<div class="container-fluid" id="computer-menu">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="menu-top">
+        <ul>
+          <li id="li-spacing"><a href=""><b><span style="color:#48B5E7">Over</span>tech</a></b></li>
+          <li><a ui-sref="/">Página inicial <i class="fa fa-home"></i></a></li>
+          <li class="dropdown">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Categorias <i class="fa fa-sitemap"></i></a>
+            <ul class="dropdown-menu" style="padding-bottom:6px">
+              <li class="dropdown-header">Quais são as novidades?</li>
+              <li style="padding:1px;width:100%;font-size:13px"><a ui-sref="available-categories">Categorias disponíveis</a></li>
+              <li class="dropdown-header">Deseja tirar suas dúvidas?</li>
+              <li style="padding:1px;width:100%;font-size:13px"><a ui-sref="new-question">Cadastrar uma pergunta</a></li>
+            </ul>
+          </li>
+          <li><a ui-sref="uploaded-files">Arquivos por matéria <i class="fa fa-share-alt-square"></i></a></li>
+          <li><a ui-sref="users">Usuários registrados <i class="fa fa-users"></i></a></li>
+          <!-- <li><a ui-sref="common-questions">Perguntas frequentes <i class="fa fa-child"></i></a></li> -->
+          <li><a ui-sref="about-us">Sobre nós <i class="fa fa-users"></i></a></li>
+          <li id="right" ng-click="close_session()" ng-if="user_id" style="vertical-align:middle;line-height:27px"><a href="">Deslogar <i class="fa fa-plug"></i></a></li>
+          <li id="right" ng-if="user_id" style="vertical-align:middle;line-height:27px"><a ui-sref="user-page">Meu perfil <i class="fa fa-user-circle"></i></a></li>
+          <li id="right" ng-if="!user_id" style="vertical-align:middle;line-height:27px"><a href="" ng-click="loginModal()">Login <i class="fa fa-graduation-cap"></i></a></li>
+          <li id="right" ng-if="!user_id" style="vertical-align:middle;line-height:27px"><a href="" ng-click="registerModal()">Cadastro <i class="fa fa-user-plus"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid" id="cell-phone-menu">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="menu-top">
+        <a href="">Overtech Solution</a>
+        <i class="fa fa-cogs" id="right"></i>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+
+    </div>
+  </div>
+</div>
+<div class=""></div>

@@ -1,0 +1,121 @@
+<div class="container" ng-if="menu_loaded && !reconnected" ng-init="questions_news()">
+  <div class="user-news" ng-if="!db_not_responding">
+    <div class="user-news-header">
+      <div class="row">
+        <div class="col-sm-12">
+          <h3><b>Suas novidades</b></h3>
+          Por enquanto você apenas conseguirá visualizar as novidades referentes a suas perguntas, mas nas próximas atualizações adicionaremos algumas funcionalidades para lhe
+          auxiliar na utilização do sistema como um todo <i class="fa fa-smile-o"></i>.
+        </div>
+      </div>
+    </div>
+    <div class="text-center" style="margin-top:8px;margin-bottom:12px">
+      <h4><b>Muito obrigado por contribuir com o sistema!</b></h4>
+      Você deve estar se perguntando o porque de estarmos agradecendo, certo? Pode deixar que eu te explico:
+    </div>
+    <div class="user-news-steps">
+      <figure style="width:14%">
+        <img src="icons/png/ereader.png" width="55%">
+        <figcaption><b>Você envia suas perguntas</b></figcaption>
+      </figure>
+      <i class="fa fa-arrow-right"></i>
+      <figure style="width:14%">
+        <img src="icons/png/chatting.png" width="55%">
+        <figcaption><b>Seus amigos te ajudam</b></figcaption>
+      </figure>
+      <i class="fa fa-arrow-right"></i>
+      <figure style="width:14%">
+        <img src="icons/png/office-material.png" width="55%">
+        <figcaption><b>O sistema guarda essas informações</b></figcaption>
+      </figure>
+      <i class="fa fa-arrow-right"></i>
+      <figure style="width:14%">
+        <img src="icons/png/network-1.png" width="55%">
+        <figcaption><b>E então essa informação é passada para outros usuários</b></figcaption>
+      </figure>
+      <i class="fa fa-arrow-right"></i>
+      <figure style="width:12%">
+        <img src="icons/png/business-presentation.png" width="55%">
+        <figcaption><b>Fazendo com que todos aprendam</b></figcaption>
+      </figure>
+    </div>
+    <form class="filter-categories" ng-submit="filterQuestions(some_questions)">
+      <input type="text" class="form-input" placeholder="O que você busca?" ng-model="search.name">
+      <button type="submit" class="form-input">Buscar <i class="fa fa-globe"></i></button>
+    </form>
+    <div class="user-news-body">
+      <table id="search-questions">
+        <thead>
+          <th>Título</th>
+          <th>Explicação</th>
+          <th>Respostas Cadastradas</th>
+          <th>
+            Informações adicionais
+            <i class="fa fa-bookmark" id="right"></i>
+          </th>
+        </thead>
+        <tbody ng-show="q_news.length > 0">
+          <tr ng-repeat="question in some_questions | orderBy:'-answers'">
+            <td style="text-align:left"><b>{{question.title}}</b></td>
+            <td>{{question.body}}</td>
+            <td>{{question.answers || 0}} respostas</td>
+            <td style="border-right:0"><a ui-sref="question-page({category:question.id_category, question:question.id})">Visualizar pergunta <i class="fa fa-tags"></i></a></td>
+          </tr>
+        </tbody>
+        <tbody ng-if="q_news.length == 0 || some_questions.length == 0" class="without-categories-message">
+          <tr>
+            <td colspan="4">Nenhuma pergunta encontrada com as informações dadas <i class="fa fa-flag"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="my-pagination">
+      {{some_questions.length}} de {{q_news.length}}
+      <!-- Visualizar mais -->
+      <a href="" id="right" ng-if="some_questions.length != q_news.length" ng-click="showMore(cont)">Visualizar mais categorias <i class="fa fa-plus-circle"></i></a>
+      <!-- Visualizar menos -->
+      <a href="" id="right" ng-if="some_questions.length == q_news.length && q_news.length > 0" ng-click="showLess(q_news)">Visualizar menos categorias <i class="fa fa-minus-square"></i></a>
+    </div>
+  </div>
+</div>
+<div server-error ng-if="db_not_responding"></div>
+<div success-reconnect ng-if="reconnected"></div>
+<div loading-server ng-if="loading"></div>
+<div timeout-error ng-if="timeout_error"></div>
+<div db-not-responding ng-if="db_not_responding"></div>
+<div class="container-fluid">
+  <div class="footer">
+    <div class="row">
+      <div class="col-sm-3">
+        <h4><b>Ícones e imagens:</b></h4>
+        Todas as imagens encontradas aqui foram retiradas do seguinte site: <b>http://www.flaticon.com/</b><br>
+        <div style="margin-top:3px">
+          - Icons made by <a title="Flat Icons" href="http://www.flaticon.com/authors/flat-icons">Flat Icons</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Freepik" href="http://www.freepik.com">Freepik</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Eucalyp" href="http://www.flaticon.com/authors/eucalyp"> Eucalyp</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Popcorns Arts" href="http://www.flaticon.com/authors/popcorns-arts">Popcorns Arts</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Quem somos?</b></h4>
+        Para entrar em contato conosco, basta enviar uma mensagem para <b>gilberto.giro.resende@gmail.com</b> ou então enviar uma mensagem
+        de texto para o número <b>(11)97565-4389</b>.
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Informações do aplicativo</b></h4>
+        Para visualizar as informações mais específicas da aplicação, basta <a href="">clicar aqui</a>. Nesta página você pode visualizar informações como,
+        tecnologias utilizadas, documentação da aplicação, manual de uso, etc.
+      </div>
+      <div class="col-sm-3" id="icons-bottom">
+        <div class="text-left">
+          <h4><b>Compartilhe com os amigos:</b></h4>
+          Por favor, assim que possível, compartilhe nossa aplicação com seus amigos para que ela passe a atingir um público considerável
+          de estudantes para que possamos criar um ambiente de estudos bem estruturado.
+        </div>
+        <a href="" class="i-color"><i class="fa fa-facebook-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-google-plus-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

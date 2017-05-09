@@ -1,0 +1,133 @@
+<div class="container" ng-if="menu_loaded && !reconnected && !db_not_responding" ng-init="loadingContent()">
+  <div class="search-users">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="search-users-header">
+          <h3><b>Encontre seus amigos aqui!</b></h3>
+          Visualize as principais informações de cada um de seus amigos que possuem um conta cadastrada em nosso sistema.
+        </div>
+      </div>
+    </div>
+    <div class="search-users-body">
+      <div class="show-users">
+        <div class="row">
+          <div class="col-sm-12">
+            <h4><b>Usuários já cadastrados no sistema:</b></h4>
+            <div class="filter-users">
+              <form ng-submit="filterUsers(current_users,search)">
+                <input type="text" ng-model="search.name" placeholder="O que você busca?">
+                <select ng-model="search.course" ng-options="course.id as course.name for course in courses">
+                  <option value="">Qual o curso?</option>
+                </select>
+                <button type="submit">Buscar <i class="fa fa-globe"></i></button>
+                <button type="button" id="right" ng-click="registerModal()">Ainda não é registrado? <i class="fa fa-user-plus"></i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div ng-repeat="user in some_users" ng-if="$index % 3 == 0" class="row">
+          <div class="col-sm-4">
+            <div class="user-box">
+              <div class="user-box-header">
+                <b>Identificação usuário</b>
+                <i class="fa fa-bookmark" id="right" style="color:#3483A7"></i>
+              </div>
+              <div class="user-box-body">
+                <span class="block"><b><i class="fa fa-user-circle" style="color:#143240"></i> Nome:</b> {{user.name}}</span>
+                <span class="block"><b><i class="fa fa-mortar-board" style="color:#143240"></i> Curso:</b> {{courses[user.course - 1]["name"]}}</span>
+                <span class="block"><b><i class="fa fa-google-plus-square" style="color:#C44D58"></i> E-mail:</b> {{user.email}}</span>
+              </div>
+              <div class="profile-buttons">
+                <button type="button" ng-click="seeProfile(user)">Ver perfil <i class="fa fa-briefcase"></i></button>
+                <button type="button">Conversar <i class="fa fa-fax"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4" ng-if="some_users.length > ($index + 1)">
+            <div class="user-box">
+              <div class="user-box-header">
+                <b>Identificação usuário</b>
+                <i class="fa fa-bookmark" id="right" style="color:#3483A7"></i>
+              </div>
+              <div class="user-box-body">
+                <span class="block"><b><i class="fa fa-user-circle" style="color:#143240"></i> Nome:</b> {{users[$index + 1].name}}</span>
+                <span class="block"><b><i class="fa fa-mortar-board" style="color:#143240"></i> Curso:</b> {{courses[users[$index + 1].course - 1]["name"]}}</span>
+                <span class="block"><b><i class="fa fa-google-plus-square" style="color:#C44D58"></i> E-mail:</b> {{users[$index + 1].email}}</span>
+              </div>
+              <div class="profile-buttons">
+                <button type="button" ng-click="seeProfile(users[$index + 1])">Ver perfil <i class="fa fa-briefcase"></i></button>
+                <button type="button">Conversar <i class="fa fa-fax"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4" ng-if="some_users.length > ($index + 2)">
+            <div class="user-box">
+              <div class="user-box-header">
+                <b>Identificação usuário</b>
+                <i class="fa fa-bookmark" id="right" style="color:#3483A7"></i>
+              </div>
+              <div class="user-box-body">
+                <span class="block"><b><i class="fa fa-user-circle" style="color:#143240"></i> Nome:</b> {{users[$index + 2].name}}</span>
+                <span class="block"><b><i class="fa fa-mortar-board" style="color:#143240"></i> Curso:</b> {{courses[users[$index + 2].course - 1]["name"]}}</span>
+                <span class="block"><b><i class="fa fa-google-plus-square" style="color:#C44D58"></i> E-mail:</b> {{users[$index + 2].email}}</span>
+              </div>
+              <div class="profile-buttons">
+                <button type="button" ng-click="seeProfile(users[$index + 2])">Ver perfil <i class="fa fa-briefcase"></i></button>
+                <button type="button">Conversar <i class="fa fa-fax"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="my-pagination">
+              <a href="" id="right" ng-if="some_users.length == users.length && users.length > 10" ng-click="showLess()">Visualizar menos usuários <i class="fa fa-plus-square"></i></a>
+              <a href="" id="right" ng-if="some_users.length > 10" ng-click="showMore(cont)">Visualizar mais usuários <i class="fa fa-plus-square"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div server-error ng-if="db_not_responding"></div>
+<div loading-server ng-if="loading"></div>
+<div timeout-error ng-if="timeout_error"></div>
+<div success-reconnect ng-if="reconnected"></div>
+<div db-not-responding ng-if="db_not_responding"></div>
+<div class="container-fluid">
+  <div class="footer">
+    <div class="row">
+      <div class="col-sm-3">
+        <h4><b>Ícones e imagens:</b></h4>
+        Todas as imagens encontradas aqui foram retiradas do seguinte site: <b>http://www.flaticon.com/</b><br>
+        <div style="margin-top:3px">
+          - Icons made by <a title="Flat Icons" href="http://www.flaticon.com/authors/flat-icons">Flat Icons</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Freepik" href="http://www.freepik.com">Freepik</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Eucalyp" href="http://www.flaticon.com/authors/eucalyp"> Eucalyp</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Popcorns Arts" href="http://www.flaticon.com/authors/popcorns-arts">Popcorns Arts</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Quem somos?</b></h4>
+        Para entrar em contato conosco, basta enviar uma mensagem para <b>gilberto.giro.resende@gmail.com</b> ou então enviar uma mensagem
+        de texto para o número <b>(11)97565-4389</b>.
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Informações do aplicativo</b></h4>
+        Para visualizar as informações mais específicas da aplicação, basta <a href="">clicar aqui</a>. Nesta página você pode visualizar informações como,
+        tecnologias utilizadas, documentação da aplicação, manual de uso, etc.
+      </div>
+      <div class="col-sm-3" id="icons-bottom">
+        <div class="text-left">
+          <h4><b>Compartilhe com os amigos:</b></h4>
+          Por favor, assim que possível, compartilhe nossa aplicação com seus amigos para que ela passe a atingir um público considerável
+          de estudantes para que possamos criar um ambiente de estudos bem estruturado.
+        </div>
+        <a href="" class="i-color"><i class="fa fa-facebook-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-google-plus-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

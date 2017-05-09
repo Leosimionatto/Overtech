@@ -1,0 +1,128 @@
+<div class="container" ng-if="menu_loaded && !reconnected" ng-init="someCategories(categories)">
+  <div class="available-categories">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="available-categories-header">
+          <h3><b>Categorias disponíveis:</b></h3>
+          Visualize todas as matérias(categorias) que você está cursando no momento e se necessário, efetue suas perguntas para que possa sanar todas as suas dúvidas.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="available-categories-body">
+          <div class="text-center">
+            <h4><b>Nunca foi tão fácil tirar suas dúvidas:</b></h4>
+            Seguindo o conjunto de 4 passos abaixo, você conseguirá sanar todas as suas dúvidas!
+          </div>
+          <div class="proccess">
+            <figure>
+              <img src="icons/png/boss-1.png" width="55%">
+              <figcaption><b>Cadastre-se no Overtech</b></figcaption>
+            </figure>
+            <i class="fa fa-arrow-right"></i>
+            <figure>
+              <img src="icons/png/maps-and-flags-1.png" width="55%">
+              <figcaption><b>Encontre a categoria de sua dúvida</b></figcaption>
+            </figure>
+            <i class="fa fa-arrow-right"></i>
+            <figure>
+              <img src="icons/png/ereader-1.png" width="55%">
+              <figcaption><b>Cadastre suas perguntas</b></figcaption>
+            </figure>
+            <i class="fa fa-arrow-right"></i>
+            <figure>
+              <img src="icons/png/video-chat.png" width="55%">
+              <figcaption><b>Tire suas dúvidas</b></figcaption>
+            </figure>
+          </div>
+          <div style="margin-top:10px">
+            <h4><b>O que você está buscando?</b></h4>
+          </div>
+          <form class="filter-categories" ng-submit="filterCategories(some_categories)">
+            <input type="text" class="form-input" placeholder="O que você busca?" ng-model="search.name">
+            <button type="submit" class="form-input">Buscar <i class="fa fa-globe"></i></button>
+            <button type="button" class="form-input" id="right" ng-click="registerModal()">Como me registrar <i class="fa fa-cogs"></i></button>
+          </form>
+          <div class="table-responsive">
+            <table id="search-categories">
+              <thead>
+                <th>Nome</th>
+                <th>Curso relacionado</th>
+                <th>Semestre</th>
+                <th>
+                  Informações adicionais
+                  <i class="fa fa-bookmark" id="right"></i>
+                </th>
+              </thead>
+              <tbody ng-show="categories.length > 0">
+                <tr ng-repeat="category in some_categories">
+                  <td style="width:25%;text-align:left;padding:10px">
+                    <span class="project-name">{{category.name}}</span>
+                    Lembre-se que suas respostas ajudam a sanar as dúvidas de seus colegas, ou seja, este é um trabalho de cooperação.
+                  </td>
+                  <td>{{courses[category.course - 1]["name"]}}</td>
+                  <td>{{category.semester}}º semestre</td>
+                  <td><a href="" ng-click="viewCategory(category)">Visualizar categoria <i class="fa fa-tags"></i></a></td>
+                </tr>
+              </tbody>
+              <tbody ng-if="categories.length == 0 || some_categories.length == 0" class="without-categories-message">
+                <tr>
+                  <td colspan="4">Nenhuma categoria encontrada com as informações dadas <i class="fa fa-flag"></i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="my-pagination">
+            {{some_categories.length}} de {{categories.length}}
+            <!-- Visualizar mais -->
+            <a href="" id="right" ng-if="some_categories.length != categories.length" ng-click="showMore(cont)">Visualizar mais categorias <i class="fa fa-plus-circle"></i></a>
+            <!-- Visualizar menos -->
+            <a href="" id="right" ng-if="some_categories.length == categories.length && categories.length > 0" ng-click="showLess(categories)">Visualizar menos categorias <i class="fa fa-minus-square"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div server-error ng-if="db_not_responding"></div>
+<div success-reconnect ng-if="reconnected"></div>
+<div loading-server ng-if="loading"></div>
+<div timeout-error ng-if="timeout_error"></div>
+<div db-not-responding ng-if="db_not_responding"></div>
+<div class="container-fluid">
+  <div class="footer">
+    <div class="row">
+      <div class="col-sm-3">
+        <h4><b>Ícones e imagens:</b></h4>
+        Todas as imagens encontradas aqui foram retiradas do seguinte site: <b>http://www.flaticon.com/</b><br>
+        <div style="margin-top:3px">
+          - Icons made by <a title="Flat Icons" href="http://www.flaticon.com/authors/flat-icons">Flat Icons</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Freepik" href="http://www.freepik.com">Freepik</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Eucalyp" href="http://www.flaticon.com/authors/eucalyp"> Eucalyp</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Popcorns Arts" href="http://www.flaticon.com/authors/popcorns-arts">Popcorns Arts</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Quem somos?</b></h4>
+        Para entrar em contato conosco, basta enviar uma mensagem para <b>gilberto.giro.resende@gmail.com</b> ou então enviar uma mensagem
+        de texto para o número <b>(11)97565-4389</b>.
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Informações do aplicativo</b></h4>
+        Para visualizar as informações mais específicas da aplicação, basta <a href="">clicar aqui</a>. Nesta página você pode visualizar informações como,
+        tecnologias utilizadas, documentação da aplicação, manual de uso, etc.
+      </div>
+      <div class="col-sm-3" id="icons-bottom">
+        <div class="text-left">
+          <h4><b>Compartilhe com os amigos:</b></h4>
+          Por favor, assim que possível, compartilhe nossa aplicação com seus amigos para que ela passe a atingir um público considerável
+          de estudantes para que possamos criar um ambiente de estudos bem estruturado.
+        </div>
+        <a href="" class="i-color"><i class="fa fa-facebook-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-google-plus-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

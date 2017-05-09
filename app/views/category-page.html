@@ -1,0 +1,134 @@
+<div class="container" ng-if="menu_loaded && !reconnected" ng-init="category_information()">
+  <div class="category-page" ng-if="category && !db_not_responding && !loading && !statusText">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="category-page-header">
+          <h3><b>{{category.name}}</b></h3>
+          Visualize aqui todas as informações já cadastradas dentro desta matéria. Caso você esteja em um determinado semestre, mas possua algumas <b>excessões</b>, entre em contato
+          com o suporte <a href="">clicando aqui</a>.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="category-page-body">
+          <div class="action-buttons">
+            <form ng-submit="filter_questions(current_questions,search)">
+              <input type="text" placeholder="O que você busca?" ng-model="search.name">
+              <select class="form-input" ng-model="search.order">
+                <option value="">Ordenar por?</option>
+                <option value="news">Mais atuais</option>
+                <option value="last">Menos atuais</option>
+              </select>
+              <button type="submit">Buscar <i class="fa fa-globe"></i></button>
+              <button type="button" id="right" ui-sref="new-question">Registrar uma pergunta <i class="fa fa-comments"></i></button>
+            </form>
+          </div>
+          <div class="questions" ng-if="questions.length > 0 && some_questions.length != 0">
+            <h4><b>Questões cadastradas:</b></h4>
+            <div class="table" style="width:100%">
+              <div class="category-question" ng-repeat="question in some_questions" style="margin-bottom:6px">
+                <div class="table-row-group">
+                  <div class="table-cell" style="width:9%;padding:6px">
+                    <img src="icons/png/avatars/man-18.png" width="100%">
+                  </div>
+                  <div class="table-cell" style="padding-right:6px;padding-left:8px;border-left:1px solid #F0F0F0">
+                    <i class="fa fa-mortar-board" id="right"></i>
+                    <span class="title"><a href="" ng-click="question_page(question,category)"><b>{{question.title}}</b></a></span>
+                    <span class="explanation">{{question.body}}</span>
+                    <span class="creator"><b>Enviada por:</b> {{question.user_name}} em <b>{{question.creation_date | date:'dd/MM/yyyy'}}</b></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="my-pagination">
+              {{some_questions.length}} de {{questions.length}}
+              <!-- Visualizar mais -->
+              <a href="" id="right" ng-if="some_questions.length != questions.length" ng-click="showMore(cont)">Visualizar mais categorias <i class="fa fa-plus-circle"></i></a>
+              <!-- Visualizar menos -->
+              <a href="" id="right" ng-if="some_questions.length == questions.length && questions.length > 10" ng-click="showLess(questions)">Visualizar menos categorias <i class="fa fa-minus-square"></i></a>
+            </div>
+          </div>
+          <div class="questions" ng-if="questions.length == 0">
+            <h4><b>Questões cadastradas:</b></h4>
+            <span class="no-questions">Essa categoria não possui nenhuma pergunta cadastrada até o momento</span>
+          </div>
+          <div class="questions" ng-if="some_questions.length == 0 && questions.length > 0">
+            <h4><b>Questões cadastradas:</b></h4>
+            <span class="no-questions">Nenhuma pergunta encontrada com as informações dadas.</span>
+          </div>
+          <div class="some-information">
+            <div class="information">
+              <div class="information-header">
+                Como eu registro uma pergunta?
+              </div>
+              <div class="information-body">
+                Para registrar uma perguntas, basta seguir o procedimento de 3 passos abaixo ou então <a ui-sref="new-question">clicar aqui</a>: <br>
+                1) Clicar em <b>Cadastrar uma pergunta</b> <br>
+                2) Preencher os dados requisitados <br>
+                3) Clicar em <b>Finalizar</b> <br>
+              </div>
+            </div>
+            <div class="information">
+              <div class="information-header">
+                Como compartilhar meu conteúdo?
+              </div>
+              <div class="information-body">
+                Para compartilhar seu conteúdo dentro de nosso sistema, é importante começar informando que será necessário que você esteja cadastrado em
+                nossa aplicação. Caso não esteja cadastrado, basta <a href="" ng-click="registerModal()">clicar aqui</a>. Caso já tenha uma conta, você poderá efetuar este procedimento
+                seguindo o passo a passo abaixo: <br>
+                1) Basta clicar em <b>Arquivos por matéria</b><br>
+                2) Selecionar a <b>categoria</b> em questão<br>
+                3) Clicar em <b>Enviar arquivos</b><br>
+                4) Selecionar o documento<br>
+                5) Clicar em <b>Enviar</b> <br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div status-text ng-if="statusText"></div>
+<div server-error ng-if="db_not_responding"></div>
+<div success-reconnect ng-if="reconnected"></div>
+<div loading-server ng-if="loading"></div>
+<div timeout-error ng-if="timeout_error"></div>
+<div db-not-responding ng-if="db_not_responding"></div>
+<div class="container-fluid">
+  <div class="footer">
+    <div class="row">
+      <div class="col-sm-3">
+        <h4><b>Ícones e imagens:</b></h4>
+        Todas as imagens encontradas aqui foram retiradas do seguinte site: <b>http://www.flaticon.com/</b><br>
+        <div style="margin-top:3px">
+          - Icons made by <a title="Flat Icons" href="http://www.flaticon.com/authors/flat-icons">Flat Icons</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Freepik" href="http://www.freepik.com">Freepik</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Eucalyp" href="http://www.flaticon.com/authors/eucalyp"> Eucalyp</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Popcorns Arts" href="http://www.flaticon.com/authors/popcorns-arts">Popcorns Arts</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Quem somos?</b></h4>
+        Para entrar em contato conosco, basta enviar uma mensagem para <b>gilberto.giro.resende@gmail.com</b> ou então enviar uma mensagem
+        de texto para o número <b>(11)97565-4389</b>.
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Informações do aplicativo</b></h4>
+        Para visualizar as informações mais específicas da aplicação, basta <a href="">clicar aqui</a>. Nesta página você pode visualizar informações como,
+        tecnologias utilizadas, documentação da aplicação, manual de uso, etc.
+      </div>
+      <div class="col-sm-3" id="icons-bottom">
+        <div class="text-left">
+          <h4><b>Compartilhe com os amigos:</b></h4>
+          Por favor, assim que possível, compartilhe nossa aplicação com seus amigos para que ela passe a atingir um público considerável
+          de estudantes para que possamos criar um ambiente de estudos bem estruturado.
+        </div>
+        <a href="" class="i-color"><i class="fa fa-facebook-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-google-plus-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

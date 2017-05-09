@@ -1,0 +1,24 @@
+<div class="modal-content" id="edit-information">
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="$dismiss()">&times;</button>
+    <h4 class="modal-title"><b>Deseja editar essas informações?</b></h4>
+  </div>
+  <div class="modal-body">
+    <div style="margin-bottom:3px">
+      <h5><b>Vamos lá? Eu te mostro como é simples <i class="fa fa-heart" style="color:#C44D58"></i></b></h5>
+      Para alterar as informações de sua categoria, você precisará apenas preencher todas as informações abaixo e em seguida clicar em <b>Salvar alterações</b>.
+    </div>
+    <form class="login-form" ng-submit="">
+      <input type="email" ng-class="{invalid_params:edit_error}" placeholder="Qual o nome?" ng-model="category.name" class="form-input" ng-required="true"><br>
+      <textarea ng-class="{invalid_params:edit_error}" placeholder="Qual a descrição?" ng-model="category.description" ng-required="true" style="margin-top:6px"></textarea>
+      <textarea ng-class="{invalid_params:edit_error}" placeholder="Qual o conteúdo?" ng-model="category.content" ng-required="true"></textarea>
+      <button type="submit" class="btn btn-success">Salvar as alterações <i class="fa fa-coffee"></i></button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" ng-click="$dismiss()" class="btn btn-default">Cancelar</button>
+  </div>
+</div>
+<div class="error-message" ng-if="edit_error">
+  Mensagem de erro - Dados incorretos
+</div>

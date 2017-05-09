@@ -1,0 +1,25 @@
+<div class="modal-content" id="login-system">
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="close()">&times;</button>
+    <h5 class="modal-title"><b>Deseja mesmo participar desta categoria?</b></h5>
+  </div>
+  <div class="modal-body" style="padding-top:10px">
+    Para cancelar sua inscrição nesta categoria em 3 passos, basta seguir o passo a passo abaixo: <br>
+    <b>1)</b> Entrar em sua página de gerenciamento de suas informações <br>
+    <b>2)</b> Entrar na aba de <b>Categorias</b> <br>
+    <b>3)</b> Pesquisar a categoria para com a qual deseja cancelar sua inscrição e clicar em <b>Cancelar</b>
+  </div>
+  <div class="modal-footer">
+    <button type="button" ng-click="request_participation(category)" class="btn btn-default">Participar <i class="fa fa-user-plus"></i></button>
+    <button type="button" ng-click="close()" class="btn btn-default">Cancelar</button>
+  </div>
+</div>
+<div class="unlogged" ng-if="unlogged" style="top:40px">
+  <b>Mensagem de erro</b> - Você precisa estar logado para prosseguir
+</div>
+<div class="success-register" ng-if="success_register" style="top:40px">
+  <b>Parabéns!</b> Você será redirecionado em instantes
+</div>
+<div class="unlogged" ng-if="registred" style="top:40px">
+  <b>Mensagem de erro</b> - Você já está cadastrado
+</div>

@@ -1,0 +1,1772 @@
+@media screen and (max-device-width:1024px){
+  .modal-dialog{
+      width:45% !important;
+  }
+  .container{
+    padding-bottom:300px !important;
+  }
+  .container-fluid .footer{
+    font-size:12px !important;
+  }
+  .container-fluid .footer h4{
+    font-size:17px !important;
+  }
+}
+::-webkit-scrollbar{
+    width:10px;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+html{
+  min-height:100%;
+  position:relative;
+}
+.container-fluid{
+  font-family:'Raleway', sans-serif;
+}
+.container{
+  font-family:'Raleway', sans-serif;
+  padding-bottom:200px;
+}
+.menu-top{
+  top:0;
+  left:0;
+  z-index:2;
+  width:100%;
+  padding:8px;
+  position:fixed;
+  background:#373737;
+}
+.menu-top ul{
+  padding:0;
+  margin:0;
+  list-style:none;
+  align-items:center;
+}
+.menu-top li{
+  padding:6px;
+  padding-left:8px;
+  padding-right:8px;
+  display:inline-block;
+}
+#li-spacing{
+  font-size:19px;
+  padding-right:20px;
+}
+#li-spacing a:hover{
+  color:#939393;
+}
+.menu-top a{
+  color:#939393;
+}
+.menu-top a:hover{
+  color:#FFF;
+  text-decoration:none;
+}
+.menu-top a:focus{
+  color:#939393;
+  text-decoration:none;
+}
+.menu-top i{
+  color:#48B5E7;
+}
+/* Este CSS pertence ao menu que será disponibilizado nos celulares */
+#cell-phone-menu .menu-top{
+  padding:15px;
+  display:block;
+}
+#cell-phone-menu .menu-top i{
+  font-size:19px;
+  color:#48B5E7;
+}
+#cell-phone-menu .menu-top a{
+  font-weight:bold;
+}
+/* Este CSS pertence aos modais das páginas */
+.modal-dialog{
+  width:30%;
+  font-family:'Raleway',sans-serif;
+}
+#login-system{
+  font-size:12px;
+}
+#login-system .modal-body{
+  padding:15px;
+}
+#login-system h5{
+  margin:0;
+}
+#login-system .login-form .form-input{
+  width:100%;
+  padding:6px;
+  margin-top:6px;
+}
+#login-system .login-form button{
+  width:100%;
+  padding:8px;
+  border:none;
+  font-size:12px;
+  margin-top:6px;
+  border-radius:2px;
+  border:1px solid #C0C0C0;
+}
+#login-system .img{
+  display:block;
+  text-align:center;
+  margin-bottom:5px;
+}
+#login-system .close{
+  font-size:20px;
+}
+#login-system .modal-footer{
+  padding:10px;
+}
+#login-system .modal-footer button{
+  font-size:12px;
+}
+/* Este CSS pertence a página initial-page.html */
+.initial-page{
+  padding:10px;
+  font-size:13px;
+  margin-top:55px;
+}
+.initial-page-header{
+  padding-bottom:5px;
+  border-bottom:1px solid #E0E0E0;
+}
+.initial-page-body h4{
+  margin-top:8px;
+}
+.category-steps .col-sm-4{
+  margin-top:10px;
+}
+.image-carousel{
+  width:100%;
+  margin-top:10px;
+  margin-left:auto;
+  margin-right:auto;
+  position:relative;
+  margin-bottom:10px;
+}
+.image-carousel img{
+  cursor:pointer;
+}
+.image-carousel h4{
+  left:10px;
+  bottom:50px;
+  color:#C9D8E5;
+  cursor:pointer;
+  position:absolute;
+}
+.image-carousel p{
+  left:10px;
+  bottom:23px;
+  color:#C9D8E5;
+  cursor:pointer;
+  position:absolute;
+}
+.image-carousel .second-image h4{
+  top:10px;
+  color:#FFF;
+}
+.image-carousel .second-image p{
+  top:40px;
+  color:#FFF;
+}
+.image-carousel h4:hover{
+  color:#FFF;
+  text-decoration:underline;
+}
+.image-carousel #angle-right{
+  top:50%;
+  z-index:1;
+  right:10px;
+  color:#C9D8E5;
+  cursor:pointer;
+  font-size:62px;
+  position:absolute;
+  transform: translateY(-50%);
+}
+.image-carousel #angle-right:hover{
+  color:#FFF;
+}
+.image-carousel #angle-left{
+  top:50%;
+  left:10px;
+  z-index:1;
+  color:#C9D8E5;
+  cursor:pointer;
+  font-size:62px;
+  position:absolute;
+  transform: translateY(-50%);
+}
+.image-carousel #angle-left:hover{
+  color:#FFF;
+}
+.success-steps i{
+  font-size:40px;
+}
+.success-steps{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.step{
+  margin-top:10px;
+  margin-left:30px;
+  margin-right:30px;
+  text-align:center;
+  vertical-align:middle;
+  display:inline-block;
+}
+.align-items-center{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.categories-div{
+  width:90px;
+  color:#FFF;
+  padding:4px;
+  font-size:20px;
+  margin-top:8px;
+  cursor:pointer;
+  margin-right:10px;
+  text-align:center;
+  display:inline-block;
+  background-color:#3483A7;
+}
+.categories-div:hover{
+  background-color:#48B5E7;
+}
+/* Este CSS pertence a página article.html */
+/*.article-page{
+  padding:10px;
+  font-size:13px;
+  margin-top:55px;
+}
+.article-page-header{
+  padding-bottom:5px;
+  margin-bottom:8px;
+  border-bottom:1px solid #E0E0E0;
+}*/
+/* Este CSS pertence a página available-categories.html */
+.available-categories{
+  padding:10px;
+  font-size:13px;
+  margin-top:55px;
+}
+.available-categories-header{
+  padding-bottom:5px;
+  border-bottom:1px solid #E0E0E0;
+}
+.filter-categories input{
+  width:170px;
+  padding:5px;
+  font-size:12px;
+  margin-top:8px;
+}
+.filter-categories select{
+  width:170px;
+  padding:6px;
+  font-size:12px;
+  margin-top:8px;
+}
+.filter-categories button{
+  padding:5px;
+  margin-top:8px;
+}
+.available-categories-body #search-categories{
+  width:100%;
+  margin-top:10px;
+  border:1px solid #F5F5F5;
+}
+.available-categories-body #search-categories i{
+  font-size:18px;
+}
+.available-categories-body h4{
+  margin-top:6px;
+}
+.available-categories-body .text-center{
+  margin-bottom:8px;
+}
+.available-categories-body .proccess{
+  display:flex;
+  font-size:36px;
+  margin-bottom:10px;
+  align-items:center;
+  justify-content:center;
+}
+.available-categories-body .proccess figure{
+  width:15%;
+  text-align:center;
+}
+.available-categories-body .proccess figcaption{
+  font-size:13px;
+  text-align:center;
+}
+.available-categories-body .proccess i{
+  margin-left:20px;
+  margin-right:20px;
+}
+.available-categories-body thead th{
+  color:#FFF;
+  padding:12px;
+  font-size:14px;
+  text-align:center;
+  font-weight:normal;
+  vertical-align:middle;
+  background-color:#2C6E8C;
+}
+.available-categories-body tbody tr{
+  cursor:pointer;
+}
+.available-categories-body tbody td{
+  width:25%;
+  font-size:13px;
+  text-align:center;
+  vertical-align:middle;
+  border-top:1px solid #E6E6E6;
+}
+.available-categories-body tbody tr:hover{
+  background-color:#F0F0F0;
+}
+.project-name{
+  display:block;
+  font-size:15px;
+  font-weight:bold;
+}
+/* Este CSS pertence a página view-category.html */
+/*.view-category{
+  padding:10px;
+  font-size:13px;
+  margin-top:55px;
+}
+.view-category-header{
+  margin-bottom:8px;
+  padding-bottom:5px;
+  border-bottom:1px solid #E0E0E0;
+}*/
+.action-buttons button{
+  padding:3px;
+  font-size:13px;
+  border:1px solid #C0C0C0;
+}
+/*.category-information-header{
+  color:#FFF;
+  padding:8px;
+  margin-top:8px;
+  font-size:15px;
+  background-color:#3483A7;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+}
+.category-information-body{
+  padding:8px;
+  border-left:1px solid #F0F0F0;
+  border-right:1px solid #F0F0F0;
+  border-bottom:1px solid #F0F0F0;
+}
+.register-in-category-animation{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.register-in-category-animation i{
+  font-size:36px;
+  margin-left:15px;
+  margin-right:15px;
+}
+.fa.first{
+  display:none;
+}
+.fa.second{
+  display:none;
+}
+.fa.third{
+  display:none;
+}
+.fa.forth{
+  display:none;
+}
+.step-1{
+  width:10%;
+  display:none;
+  text-align:center;
+}
+.step-2{
+  width:10%;
+  display:none;
+  text-align:center;
+}
+.step-3{
+  width:10%;
+  display:none;
+  text-align:center;
+}
+.step-4{
+  width:10%;
+  display:none;
+  text-align:center;
+}
+.step-5{
+  width:10%;
+  display:none;
+  text-align:center;
+}*/
+/* Este CSS pertence a página about-us.html */
+.about-us{
+  padding:10px;
+  font-size:13px;
+  margin-top:55px;
+}
+.about-us-header{
+  padding-bottom:5px;
+  border-bottom:1px solid #E0E0E0;
+}
+.about-us-header h3{
+  margin-bottom:2px;
+}
+.about-us-body{
+  margin-top:8px;
+}
+.about-us-body img{
+  float:left;
+  margin-right:6px;
+}
+.about-us-body i{
+  color:#337ab7;
+  font-size:22px;
+  margin-left:2px;
+  margin-right:2px;
+}
+.developer-name{
+  font-size:17px;
+  display:inline-block;
+}
+.divider{
+  width:85%;
+  padding:1px;
+  margin-top:10px;
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom:10px;
+  border-bottom:1px dotted #C0C0C0;
+}
+/* Este CSS pertence a página common-questions.html */
+.common-questions{
+  padding:10px;
+  font-size:13px;
+  margin-top:55px;
+}
+.common-questions-header{
+  margin-bottom:6px;
+  padding-bottom:8px;
+  border-bottom:1px solid #E0E0E0;
+}
+.common-questions-body summary{
+  cursor:pointer;
+  font-size:15px;
+  margin-top:6px;
+}
+.common-questions-body details p{
+  margin-top:5px;
+}
+/* Este CSS pertence a página select-category.html */
+/*.select-category{
+  padding:10px;
+  font-size:13px;
+  margin-top:55px;
+}
+.select-category-header{
+  padding-bottom:5px;
+  margin-bottom:2px;
+  border-bottom:1px solid #E0E0E0;
+}
+.select-category-body .filter-categories{
+  margin-bottom:8px;
+}
+.select-category-body table{
+  width:100%;
+  border:1px solid #F6F6F6;
+}
+.select-category-body table thead{
+  border:1px solid #C0C0C0;
+}
+.select-category-body table th{
+  width:20%;
+  color:#FFF;
+  padding:12px;
+  font-size:14px;
+  text-align:center;
+  font-weight:normal;
+  background-color:#2C6E8C;
+}
+.select-category-body table th i{
+  font-size:16px;
+}
+.select-category-body table tbody tr{
+  cursor:pointer;
+}
+.select-category-body table tbody tr:hover{
+  background-color:#F8F8F8;
+}
+.select-category-body table td{
+  padding:10px;
+  font-size:12px;
+  text-align:center;
+  border-top:1px solid #F0F0F0;
+}
+.my-pagination button{
+  padding:4px;
+  border:1px solid #C0C0C0;
+}
+.select-category-body .my-pagination a{
+  margin-top:5px;
+}*/
+/* Este CSS pertence a página category-page.html */
+.category-page{
+  padding:10px;
+  font-size:13px;
+  margin-top:55px;
+}
+.category-page-header{
+  margin-bottom:8px;
+  padding-bottom:5px;
+  border-bottom:1px solid #E0E0E0;
+}
+.category-page-body .action-buttons input{
+  padding:4px;
+  font-size:12px;
+  margin-right:3px;
+  border:1px solid #C0C0C0;
+}
+.category-page-body .action-buttons select{
+  margin-right:3px;
+}
+.category-page-body .questions{
+  margin-top:10px;
+}
+.questions{
+  width:68%;
+  vertical-align: top;
+  display:inline-block;
+}
+.no-questions{
+  width:100%;
+  display:block;
+  margin-top:5px;
+  margin-left:3px;
+}
+.category-question{
+  padding-bottom:4px;
+  border-bottom:1px solid #E8E8E8;
+}
+.category-question .title{
+  display:block;
+  font-size:14px;
+  margin-top:6px;
+}
+.category-question .explanation{
+  display:block;
+  font-size:13px;
+}
+.category-question .creator{
+  display:block;
+  font-size:12px;
+}
+.some-information{
+  width:30%;
+  padding:5px;
+  font-size:13px;
+  margin-left:15px;
+  display:inline-block;
+  word-wrap:break-word;
+}
+.some-information h5{
+  margin:0;
+  margin-bottom:4px;
+}
+.category-question .icons{
+  font-size:20px;
+}
+.information-header{
+  color:#FFF;
+  padding:8px;
+  display:block;
+  font-size:15px;
+  margin-top:8px;
+  background-color:#3483A7;
+  border-top-left-radius:2px;
+  border-top-right-radius:2px;
+}
+.information-body{
+  padding:8px;
+  border-bottom:1px solid #F0F0F0;
+  border-right:1px solid #F0F0F0;
+  border-left:1px solid #F0F0F0;
+}
+/* Este CSS pertence a página question-page.html */
+.question-page{
+  padding:10px;
+  font-size:13px;
+  margin-top:55px;
+}
+.question-page-header{
+  padding-bottom:5px;
+  border-bottom:1px solid #E0E0E0;
+}
+.question-page-body .action-buttons button{
+  margin-top:6px;
+  margin-right:3px;
+}
+.question-page-body .question-content{
+  margin-top:12px;
+}
+.question-page-body .question-content h4{
+  margin-bottom:4px;
+  padding-bottom:5px;
+  border-bottom:1px solid #E8E8E8;
+}
+.question-page-body .question-content h4 i{
+  font-size:17px;
+}
+.question-content i{
+  font-size:21px;
+  margin-left:2px;
+}
+.inside-space{
+  margin-left:6px;
+}
+.answer{
+  padding:6px;
+}
+#chat-icon{
+  color:#205167;
+  font-size:15px;
+}
+.divider-answers{
+  width:85%;
+  margin-top:14px;
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom:4px;
+  border-bottom:1px dotted #D0D0D0;
+}
+.spacing-top{
+  margin-top:19px;
+}
+.question-content textarea{
+  width:65%;
+  resize:none;
+  padding:6px;
+  height:155px;
+  display:block;
+  font-size:12px;
+  margin-top:6px;
+  margin-bottom:4px;
+  border:1px solid #C0C0C0;
+}
+.question-content button{
+  padding:4px;
+  margin-top:4px;
+  font-size:12px;
+  border:1px solid #C0C0C0;
+}
+#loginFile{
+  display:none;
+}
+/* Este CSS pertence a página new-question.html */
+.new-question{
+  padding:10px;
+  font-size:13px;
+  margin-top:55px;
+}
+.new-question-header{
+  padding-bottom:5px;
+  border-bottom:1px solid #E0E0E0;
+}
+.badge-color{
+  font-size:14px;
+  background-color:#143240;
+}
+.new-question-body #steps{
+  margin-top:15px;
+}
+.new-question-body form{
+  margin-top:6px;
+  margin-left:15px;
+}
+.new-question-body input{
+  width:70%;
+}
+.new-question-body select{
+  margin-top:100px;
+}
+.new-question-body .file-button{
+  padding:3px;
+  margin-top:4px;
+  font-size:12px;
+  cursor:pointer;
+  font-weight:normal;
+  border:1px solid #C0C0C0;
+  background-color:#D9D9D9;
+}
+.new-question-body .form-textarea{
+  width:95%;
+  resize:none;
+  padding:4px;
+  height:120px;
+  display:block;
+  margin-top:4px;
+  font-size:13px;
+  border:1px solid #C0C0C0;
+}
+.finish{
+  padding:4px;
+  font-size:12px;
+  border:1px solid #C0C0C0;
+}
+.register-question{
+  width:100%;
+  display:flex;
+  margin-bottom:6px;
+  align-items:center;
+  justify-content:center;
+}
+.register-question i{
+  font-size:38px;
+}
+.register-question figure{
+  width:17%;
+  margin-top:6px;
+  margin-left:5px;
+  margin-right:5px;
+  text-align:center;
+}
+.table{
+  display:table;
+}
+.table-row-group{
+  display:table-row-group;
+}
+.table-cell{
+  display:table-cell;
+  vertical-align:middle;
+}
+.disabled{
+  cursor:pointer;
+}
+.new-question-form{
+  padding-left:6px;
+  border-left:4px solid green;
+}
+.disabled .new-question-form{
+  opacity:0.6;
+  pointer-events:none;
+  border-left:5px solid #C44D58;
+}
+.a-class{
+  border:none;
+  color:#337ab7;
+  background-color:transparent;
+}
+/* Este CSS pertence a página search-users.html */
+.search-users{
+  padding:10px;
+  font-size:13px;
+  margin-top:55px;
+}
+.search-users-header{
+  padding-bottom:5px;
+  border-bottom:1px solid #E0E0E0;
+}
+.show-users{
+  margin-top:8px;
+}
+.filter-users{
+  margin-top:12px;
+  margin-bottom:8px;
+}
+.filter-users input{
+  padding:5px;
+  width:160px;
+  font-size:12px;
+  border:1px solid #C0C0C0;
+}
+.filter-users select{
+  padding:5px;
+  font-size:12px;
+  border:1px solid #C0C0C0;
+}
+.filter-users button{
+  padding:5px;
+  font-size:12px;
+  border:1px solid #C0C0C0;
+}
+.user-box{
+  margin-top:8px;
+  border-radius:4px;
+  border:1px solid #E0E0E0;
+}
+.user-box:hover{
+  box-shadow:5px 5px 10px #C0C0C0;
+}
+.user-box .block{
+  margin-top:3px;
+}
+.user-box-header{
+  padding:8px;
+  font-size:14px;
+  background-color:#F9F9F9;
+  border-bottom:1px solid #E0E0E0;
+}
+.user-box-body{
+  padding:8px;
+}
+.profile-buttons{
+  padding:8px;
+  margin-top:4px;
+  padding-top:6px;
+  text-align:right;
+  background-color:#F9F9F9;
+  border-top:1px solid #E0E0E0;
+}
+.user-box button{
+  padding:3px;
+  font-size:12px;
+  margin-left:3px;
+  border:1px solid #C0C0C0;
+}
+/* Este CSS pertence a página user-profile.html */
+.user-profile{
+  padding:10px;
+  font-size:13px;
+  margin-top:55px;
+}
+.user-profile-header{
+  padding-bottom:5px;
+  border-bottom:1px solid #E0E0E0;
+}
+.user-profile-body{
+  margin-top:6px;
+}
+.user-profile-body .information{
+  margin-top:15px;
+}
+.user-profile-body .category{
+  cursor:pointer;
+}
+.user-profile-body .information-header{
+  background-color:#205167;
+}
+.user-profile-body .explanation{
+  margin-top:15px;
+}
+.explanation .explanation-header{
+  color:#FFF;
+  padding:8px;
+  font-size:15px;
+  background-color:#3483A7;
+  border-top-left-radius:4px;
+  border-top-right-radius:4px;
+}
+.explanation .explanation-body{
+  padding:6px;
+  font-size:13px;
+  border:1px solid #F6F6F6;
+  border-bottom-left-radius:2px;
+  border-bottom-right-radius:2px;
+}
+.no-categories{
+  color:#C44D58;
+  font-size:13px;
+  margin-top:5px;
+  margin-left:5px;
+}
+.user-upload .title{
+  margin-top:5px;
+  padding-top:5px;
+  margin-bottom:3px;
+  border-top:1px solid #E7E7E7;
+}
+/* Este CSS pertence a página new-category.html */
+/*.new-category{
+  padding:10px;
+  font-size:13px;
+  margin-top:55px;
+}
+.new-category-header{
+  margin-bottom:8px;
+  padding-bottom:4px;
+  border-bottom:1px solid #E0E0E0;
+}
+.create-category{
+  margin-top:6px;
+  margin-bottom:10px;
+}
+.create-category-header{
+  color:#FFF;
+  padding:8px;
+  font-size:15px;
+  margin-top:4px;
+  background:#3483A7;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+}
+.create-category-body{
+  padding:4px;
+  border:1px solid #F0F0F0;
+}
+.level-2 .category-form{
+  opacity:0.6;
+  pointer-events:none;
+  border-left:5px solid #C44D58;
+}
+.disabled .category-form{
+  opacity:0.6;
+  pointer-events:none;
+  border-left:5px solid #C44D58;
+}
+.available .category-form{
+  opacity:0.9;
+  pointer-events:auto;
+  border-left:5px solid green;
+}
+.category-form{
+  margin-left:8px;
+  border-left:5px solid green;
+}
+.category-form .form-input{
+  width:95%;
+  padding:5px;
+  margin-top:2px;
+  margin-left:4px;
+  margin-bottom:2px;
+}
+.category-form textarea{
+  resize:none;
+  height:70px;
+}
+.category-form .button{
+  width:52%;
+  padding:3px;
+}
+.category-form a{
+  margin-left:4px;
+}
+.new-category .category-progress{
+  display:flex;
+  margin-top:3px;
+  align-items:center;
+  justify-content:center;
+}
+.category-progress figure{
+  width:25%;
+  text-align:center;
+}
+.category-progress i{
+  font-size:24px;
+  margin-top:6px;
+  margin-bottom:6px;
+}
+#created-category{
+  font-size:13px;
+}
+#created-category .modal-header{
+  padding:12px;
+}
+#created-category .modal-footer{
+  padding:10px;
+}
+#created-category .modal-footer button{
+  font-size:12px;
+}*/
+/* Este CSS pertence a página user-page.html */
+.user-information{
+  padding:10px;
+  font-size:13px;
+  margin-top:55px;
+}
+.user-information-header{
+  margin-bottom:4px;
+  padding-bottom:4px;
+  border-bottom:1px solid #E0E0E0;
+}
+.user-information-box{
+  margin-bottom:25px;
+}
+.user-information-box-header{
+  color:#FFF;
+  padding:8px;
+  font-size:16px;
+  background-color:#3583A7;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+}
+.user-information-box-body{
+  padding-top:8px;
+  border:1px solid #F0F0F0;
+}
+.your-profile-statistics{
+  width:100%;
+  padding:8px;
+  text-align:right;
+  border-top:1px solid #F0F0F0;
+}
+.your-profile-statistics button{
+  padding:4px;
+  margin-left:2px;
+  border:1px solid #C0C0C0;
+}
+.category-information-box{
+  margin-bottom:20px;
+}
+.category-information-box-header{
+  color:#FFF;
+  padding:8px;
+  font-size:16px;
+  background-color:#3483A7;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+}
+.category-information-box-body{
+  padding-top:8px;
+  border:1px solid #F0F0F0;
+}
+.category-options{
+  width:100%;
+  padding:8px;
+  text-align:right;
+  border-top:1px solid #F0F0F0;
+}
+.category-options button{
+  padding:4px;
+  margin-left:3px;
+  border:1px solid #C0C0C0;
+}
+#edit-information{
+  font-size:12px;
+}
+#edit-information .modal-body{
+  padding:15px;
+}
+#edit-information h5{
+  margin:0;
+  margin-bottom:2px;
+}
+#edit-information .login-form .form-input{
+  width:100%;
+  padding:6px;
+  margin-top:6px;
+}
+#edit-information textarea{
+  width:100%;
+  resize:none;
+  padding:6px;
+  height:80px;
+  margin-top:2px;
+  border:1px solid #C0C0C0;
+}
+#edit-information .login-form button{
+  width:100%;
+  padding:8px;
+  border:none;
+  font-size:12px;
+  margin-top:2px;
+  border-radius:2px;
+  border:1px solid #C0C0C0;
+}
+#edit-information .img{
+  width:100%;
+  display:flex;
+  text-align:center;
+  align-items:center;
+  margin-bottom:10px;
+  justify-content:center;
+}
+#edit-information .img i{
+  font-size:24px;
+}
+#edit-information .close{
+  font-size:20px;
+}
+#edit-information .modal-footer{
+  padding:10px;
+}
+#edit-information .modal-footer button{
+  font-size:12px;
+}
+/* Este CSS pertence a página your-questions.html */
+.your-questions-page{
+  padding:10px;
+  font-size:13px;
+  margin-top:55px;
+}
+.your-questions-page-header{
+  padding-bottom:4px;
+  border-bottom:1px solid #E0E0E0;
+}
+.filter-your-questions{
+  margin-top:6px;
+}
+.list-questions-table{
+  width:100%;
+  margin-top:10px;
+  table-layout:fixed;
+  border:1px solid #F7F7F7;
+}
+.list-questions-table thead tr th{
+  color:#FFF;
+  padding:12px;
+  font-size:14px;
+  text-align:center;
+  font-weight:normal;
+  background-color:#3583A7;
+}
+.list-questions-table thead i{
+  font-size:16px;
+}
+.list-questions-table tbody tr{
+  border-bottom:1px solid #F7F7F7;
+}
+.list-questions-table tbody tr td{
+  padding:8px;
+  font-size:13px;
+  cursor:pointer;
+  text-align:center;
+}
+.list-questions-table tbody tr:hover{
+  background-color:#F6F6F6;
+}
+/* Este CSS pertence a página upload-files.html */
+.upload-files{
+  padding:10px;
+  font-size:13px;
+  margin-top:55px;
+}
+.upload-files-header{
+  padding-bottom:3px;
+  border-bottom:1px solid #E0E0E0;
+}
+.upload-files-body figure{
+  width:15%;
+}
+.upload-files-body .steps{
+  display:flex;
+  font-size:12px;
+  margin-top:10px;
+  text-align:center;
+  align-items:center;
+  justify-content:center;
+}
+.upload-files-body .steps i{
+  font-size:26px;
+  margin-left:5px;
+  margin-right:5px;
+}
+.upload-files-body .title{
+  display:block;
+  font-size:17px;
+  font-weight:bold;
+}
+.uploads-table{
+  width:100%;
+  margin-top:10px;
+  table-layout:fixed;
+}
+.uploads-table thead th{
+  width:25%;
+  color:#FFF;
+  padding:10px;
+  font-size:14px;
+  text-align:center;
+  font-weight:normal;
+  background:#3583A7;
+}
+.uploads-table thead th i{
+  font-size:17px;
+}
+.uploads-table tbody td{
+  width:25%;
+  padding:8px;
+  text-align:center;
+}
+.uploads-table .category-name b{
+  font-size:14px;
+}
+.uploads-table .category-name{
+  font-size:12px;
+  text-align:left;
+}
+.upload-files-body .upload-steps{
+  margin-top:6px;
+}
+.upload-files-body .uploads-form-config{
+  width:45%;
+  font-size:14px;
+  margin-top:8px;
+  padding-left:6px;
+  border-left:4px solid #60B55C;
+}
+.upload-files-body .table{
+  margin-bottom:15px;
+  padding-bottom:15px;
+  border-bottom:1px solid #F0F0F0;
+}
+.upload-files-body label{
+  margin-top:4px;
+}
+.upload-files-body .form-input{
+  font-size:13px;
+  margin-bottom:6px;
+}
+.upload-files-body #archive-label{
+  padding:4px;
+  cursor:pointer;
+  font-size:12px;
+  border:1px solid #C0C0C0;
+  background-color:#E0E0E0;
+}
+.upload-files-body input[type=file]{
+  display:none;
+}
+.upload-files-body .explanation-inline{
+  width:40%;
+}
+.upload-files-body .explanation-inline .explanation{
+  margin-top:17px;
+}
+/* Este CSS pertence a página user-news.html */
+.user-news{
+  padding:10px;
+  font-size:13px;
+  margin-top:55px;
+}
+.user-news-header{
+  padding-bottom:4px;
+  border-bottom:1px solid #E0E0E0;
+}
+.user-news-header h3{
+  margin-bottom:2px;
+}
+.user-news-steps{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.user-news-steps figure{
+  text-align:center;
+}
+.user-news-steps i{
+  font-size:32px;
+  margin-left:4px;
+  margin-right:4px;
+}
+.user-news-body #search-questions{
+  width:100%;
+  margin-top:10px;
+  table-layout:fixed;
+  border:1px solid #F5F5F5;
+}
+.user-news-body #search-questions i{
+  font-size:18px;
+}
+.user-news-body thead th{
+  color:#FFF;
+  padding:14px;
+  font-size:14px;
+  text-align:center;
+  font-weight:normal;
+  vertical-align:middle;
+  background-color:#2C6E8C;
+}
+.user-news-body tbody tr{
+  cursor:pointer;
+}
+.user-news-body tbody td{
+  width:25%;
+  padding:14px;
+  font-size:13px;
+  overflow:hidden;
+  text-align:center;
+  white-space:nowrap;
+  vertical-align:center;
+  text-overflow:ellipsis;
+  border-top:1px solid #E6E6E6;
+  border-right:1px solid #E9E9E9;
+}
+.user-news-body tbody i{
+  font-size:13px !important;
+}
+.user-news-body tbody tr:hover{
+  background-color:#F0F0F0;
+}
+/* Este CSS pertence ao footer de todas as páginas */
+.footer{
+  left:0;
+  bottom:0;
+  width:100%;
+  padding:15px;
+  color:#B0B0B0;
+  font-size:13px;
+  position:absolute;
+  background:#373737;
+}
+.footer h4{
+  margin:0;
+  margin-bottom:3px;
+}
+.footer .i-color{
+  color:#48B5E7;
+  font-size:24px;
+  padding-left:2px;
+  padding-right:2px;
+}
+.footer a{
+  color:#48B5E7;
+}
+.i-color i:hover{
+  color:#FFF;
+}
+#icons-bottom{
+  text-align:right;
+}
+/* Este CSS pertence ao sistema de mensagens */
+.open-message-system{
+  right:0;
+  z-index:2;
+  color:#FFF;
+  width:60px;
+  bottom:180px;
+  padding:8px;
+  font-size:24px;
+  position:fixed;
+  cursor:pointer;
+  text-align:center;
+  background-color:#3483A7;
+}
+.message-system{
+  right:0;
+  z-index:2;
+  width:0;
+  bottom:180px;
+  height:500px;
+  display:none;
+  position:fixed;
+  background:#F6F6F6;
+  font-family:'Raleway',sans-serif;
+}
+.message-system-general{
+  position:relative;
+}
+.message-system-header{
+  color:#FFF;
+  height:75px;
+  padding:18px;
+  font-size:12px;
+  background-color:#2C6F8D;
+}
+.message-system-body{
+  color:#FFF;
+  height:375px;
+  overflow:auto;
+  font-size:12px;
+  background-color:#F9F9F9;
+}
+.send-message{
+  width:100%;
+  height:375px;
+  font-size:12px;
+  padding-left:2px;
+  padding-right:2px;
+  background-color:#F9F9F9;
+}
+.conversation{
+  height:328px;
+  overflow:auto;
+  padding-bottom:6px;
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: 1100px 550px;
+  background-image:url("../pattern.png");
+}
+.send-message-header{
+  padding:4px;
+  font-size:13px;
+  margin-bottom:8px;
+  border-bottom:1px solid #F0F0F0;
+}
+.send-message-system{
+  width:342px;
+  padding:4px;
+  border-top:1px solid #E0E0E0;
+}
+.send-message-system input{
+  padding:6px;
+  width:200px;
+  border:1px solid #C0C0C0;
+}
+.send-message-system button{
+  width:122px;
+  padding:6px;
+  border:1px solid #C0C0C0;
+}
+.triangle-isosceles{
+  width:65%;
+  padding:8px;
+  color:#373737;
+  font-size:12px;
+  margin-top:4px;
+  margin-left:2px;
+  margin-bottom:6px;
+  background:#f3961c;
+  border-radius:4px;
+  background:#E5E5E5;
+  position: relative;
+  word-wrap:break-word;
+}
+.other-user{
+  color:#FFF;
+  margin-right:2px;
+  margin-left:auto;
+  background-color:#3483A7;
+}
+.triangle-isosceles:after {
+  width: 0;
+  left:10px;
+  content: "";
+  bottom:-10px;
+  display:block;
+  position:absolute;
+  border-style: solid;
+  border-width: 10px 0 10px;
+  border-color: #48B5E7 transparent;
+}
+.message-system-footer{
+  color:#FFF;
+  height:50px;
+  padding:15px;
+  display:flex;
+  font-size:12px;
+  align-items:center;
+  justify-content:center;
+  background-color:#2C6F8D;
+}
+.conversation::-webkit-scrollbar {
+    width:1px;
+}
+.conversation::-webkit-scrollbar-track {
+    border-radius:1px;
+}
+.conversation::-webkit-scrollbar-thumb {
+    border-radius:1px;
+}
+.message-system-body::-webkit-scrollbar {
+    width:1px;
+}
+.message-system-body::-webkit-scrollbar-track {
+    border-radius:1px;
+}
+.message-system-body::-webkit-scrollbar-thumb {
+    border-radius:1px;
+}
+.friend{
+  padding:14px;
+  color:#373737;
+  font-size:13px;
+  cursor:pointer;
+  border-bottom:1px solid #E0E0E0;
+}
+.friend:hover{
+  background-color:#F0F0F0;
+}
+/* Este CSS pertence a página error-404.html */
+.error-404{
+  top: 36%;
+  left: 50%;
+  width:100%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  transform: -ms-translate(-50%, -50%);
+  transform: -moz-translate(-50%, -50%);
+  transform: -webkit-translate(-50%, -50%);
+}
+.error-404-title{
+  color:#C44D58;
+  text-align:center;
+}
+.error-404-title h2{
+  margin-top:3px;
+}
+.error-404-title h4{
+  color:#373737;
+}
+/* Este CSS pertence a página status-text.html */
+.status-text{
+  top: 36%;
+  left: 50%;
+  width:100%;
+  position: fixed;
+  text-align:center;
+  transform: translate(-50%, -50%);
+  transform: -ms-translate(-50%, -50%);
+  transform: -moz-translate(-50%, -50%);
+  transform: -webkit-translate(-50%, -50%);
+}
+.status-text h3{
+  margin-bottom:8px;
+}
+.status-text img{
+  width:130px;
+}
+/* Este CSS pertence aos elementos globais */
+#right{
+  float:right;
+}
+#left{
+  float:left;
+}
+#spacing-top{
+  margin-top:8px;
+}
+h3{
+  margin:0;
+  margin-bottom:3px;
+}
+h4{
+  margin:0;
+  margin-bottom:3px;
+}
+h5{
+  margin-top:5px;
+  margin-bottom:3px;
+}
+.center{
+  text-align:center;
+}
+.text-left{
+  display:block;
+  text-align:left;
+}
+.form-input{
+  padding:4px;
+  border:1px solid #C0C0C0;
+}
+.together-divs{
+  display:inline-block;
+}
+.my-pagination{
+  display:block;
+  font-size:13px;
+  margin-top:8px;
+  /*text-align:right;*/
+}
+.report-text-field{
+  width:90%;
+  margin-top:4px;
+}
+.block{
+  display:block;
+}
+#facebook{
+  color:#3483A7;
+}
+#google{
+  color:#C44D58;
+}
+#rocket{
+  color:#A0A0A0;
+}
+#inline-block{
+  display:inline-block;
+}
+.status-online{
+  font-size:13px;
+}
+.status-online .fa{
+  color:#5BA15C;
+}
+.status-offline{
+  font-size:13px;
+}
+.status-offline .fa{
+  color:#C44D58;
+}
+.loading-content{
+  top:65px;
+  left: 50%;
+  padding:8px;
+  width:120px;
+  font-size:13px;
+  position:fixed;
+  text-align:center;
+  margin-left:-50px;
+  background-color:#faebcc;
+}
+.invalid_params{
+  color:#C44D58;
+  border:1px solid #C44D58 !important;
+}
+.success{
+  color:#60B55C;
+}
+.error{
+  color:#C44D58;
+}
+.error-message{
+  left:0;
+  right:0;
+  top:25px;
+  width:75%;
+  z-index:2;
+  color:#FFF;
+  padding:10px;
+  margin:0 auto;
+  font-size:12px;
+  text-align:center;
+  position:absolute;
+  background-color:#C44D58;
+}
+.success-message{
+  left:0;
+  right:0;
+  top:25px;
+  width:80%;
+  z-index:2;
+  color:#FFF;
+  padding:10px;
+  margin:0 auto;
+  font-size:12px;
+  text-align:center;
+  position:absolute;
+  background-color:#60B55C;
+}
+.global-error{
+  top:55px;
+  left: 50%;
+  z-index:2;
+  color:#FFF;
+  padding:8px;
+  width:300px;
+  font-size:13px;
+  position:fixed;
+  text-align:center;
+  background-color:#C44D58;
+  transform: translate(-50%, -50%);
+}
+.timeout-error{
+  top:95px;
+  left: 50%;
+  z-index:2;
+  color:#FFF;
+  padding:8px;
+  width:250px;
+  font-size:13px;
+  position:fixed;
+  text-align:center;
+  background-color:#C44D58;
+  transform: translate(-50%, -50%);
+}
+.existing-category{
+  top:95px;
+  left: 50%;
+  color:#FFF;
+  padding:8px;
+  width:240px;
+  font-size:13px;
+  position:fixed;
+  text-align:center;
+  background-color:#C44D58;
+  transform: translate(-50%, -50%);
+}
+.available-category{
+  top:95px;
+  left: 50%;
+  color:#FFF;
+  padding:8px;
+  width:240px;
+  font-size:13px;
+  position:fixed;
+  text-align:center;
+  background-color:#61A95F;
+  transform: translate(-50%, -50%);
+}
+.success-reconnect{
+  top:95px;
+  left:50%;
+  color:#FFF;
+  padding:9px;
+  width:260px;
+  font-size:13px;
+  position:fixed;
+  text-align:center;
+  background-color:#61A95F;
+  transform: translate(-50%, -50%);
+}
+.unlogged{
+  top:95px;
+  left:50%;
+  color:#FFF;
+  padding:9px;
+  width:260px;
+  font-size:13px;
+  position:fixed;
+  text-align:center;
+  background-color:#C44D58;
+  transform: translate(-50%, -50%);
+}
+.success-register{
+  top:95px;
+  left:50%;
+  color:#FFF;
+  padding:9px;
+  width:260px;
+  font-size:13px;
+  position:fixed;
+  text-align:center;
+  background-color:#61A95F;
+  transform: translate(-50%, -50%);
+}
+.incorrect-fields{
+  top:65px;
+  left:50%;
+  color:#FFF;
+  padding:9px;
+  width:260px;
+  font-size:13px;
+  position:fixed;
+  text-align:center;
+  background-color:#C44D58;
+  transform:translate(-50%, -50%);
+}
+.random-message{
+  top:95px;
+  left:50%;
+  color:#FFF;
+  padding:9px;
+  width:320px;
+  font-size:13px;
+  position:fixed;
+  text-align:center;
+  background-color:#C44D58;
+  transform: translate(-50%, -50%);
+}
+.without-categories-message tr td{
+  padding:12px;
+  font-size:13px;
+}
+.active{
+  color:#3c763d;
+  font-weight:bold;
+}
+.cancel{
+  color:#C44D58;
+  font-weight:bold;
+}

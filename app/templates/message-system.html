@@ -1,0 +1,58 @@
+<div class="message-system">
+  <div class="message-system-general">
+    <div class="message-system-header">
+      <div ng-if="!selected_friend">
+        <h4><b>Overtech - Sistema de chat</b></h4>
+        Tire suas dúvidas diretamente com um usuário
+      </div>
+      <div ng-if="selected_friend">
+        <button type="button" class="close" ng-click="friendsList()"><i class="fa fa-mail-reply" style="color:#FFF"></i></button>
+        <h4><b>Histórico de conversa</b></h4>
+        <div style="margin-top:2px">
+          <span class="status-online">{{selected_friend.name}} - Online <i class="fa fa-coffee"></i></span>
+          <!-- <span class="status-offline">{{selected_friend.name}} - Offline <i class="fa fa-coffee"></i></span> -->
+        </div>
+      </div>
+    </div>
+    <div class="message-system-body" ng-show="!selected_friend">
+      <div class="friend" ng-repeat="friend in friends" ng-click="selectFriend(friend)">
+        <span id="right">4 <i class="fa fa-comments"></i></span>
+        <b>{{friend.name}}</b>
+        <span class="block" style="font-size:11px;"><b>Curso:</b> {{friend.course}}</span>
+      </div>
+      <div class="friend" ng-repeat="friend in friends">
+        <span id="right">1 <i class="fa fa-comments"></i></span>
+        <b>{{friend.name}}</b>
+        <span class="block" style="font-size:11px;"><b>Curso:</b> {{friend.course}}</span>
+      </div>
+    </div>
+    <div class="send-message" ng-show="selected_friend">
+      <div class="conversation">
+        <div class="triangle-isosceles">Ola Mundo!</div>
+        <div class="triangle-isosceles other-user">Ola Mundo!</div>
+        <div class="triangle-isosceles">Apenas testando</div>
+        <div class="triangle-isosceles other-user">É um teste?</div>
+        <div class="triangle-isosceles">Sim, apenas um teste!</div>
+        <div class="triangle-isosceles other-user">Entendi!</div>
+        <div class="triangle-isosceles">Hahahaha</div>
+        <div class="triangle-isosceles other-user">LUL</div>
+        <div class="triangle-isosceles">Testando novamente</div>
+        <div class="triangle-isosceles other-user">Por que testar de novo?</div>
+        <div class="triangle-isosceles">Sei la, apenas pra testar</div>
+        <div class="triangle-isosceles other-user">Hhahahahhahah</div>
+        <div class="triangle-isosceles">Parei!</div>
+        <div class="triangle-isosceles other-user">Tudo bem!</div>
+      </div>
+      <div class="send-message-system">
+        <input type="text" placeholder="Qual a mensagem?">
+        <button type="button" id="right">Send message <i class="fa fa-rocket"></i></button>
+      </div>
+    </div>
+    <div class="message-system-footer">
+      Overtech - Faculdade de Tecnologia de Jundiaí
+    </div>
+  </div>
+</div>
+<div class="open-message-system" id="messages">
+  <i class="fa fa-users"></i>
+</div>

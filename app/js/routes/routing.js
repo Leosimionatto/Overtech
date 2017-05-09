@@ -1,0 +1,106 @@
+angular
+  .module("fatec_system")
+  .config(function ($stateProvider, $urlRouterProvider, $locationProvider){
+    $stateProvider
+      .state("/",{
+        "url":"/",
+        "templateUrl":"views/initial-page.html",
+        "controller":"initialController"
+      })
+      .state("users",{
+        "url":"/search-users",
+        "templateUrl":"views/search-users.html",
+        "controller":"users"
+      })
+      .state("user-profile",{
+        "url":"/user-profile/:user_id",
+        "templateUrl":"views/user-profile.html",
+        "controller":"userProfile"
+      })
+      .state("user-page",{
+        "url":"/your-information",
+        "templateUrl":"views/user-page.html",
+        "controller":"userPage",
+        "needLogin":true
+      })
+      .state("article",{
+        "url":"/article/:article",
+        "templateUrl":"views/article.html",
+        "controller":"article"
+      })
+      .state("available-categories",{
+        "url":"/available-categories",
+        "templateUrl":"views/available-categories.html",
+        "controller":"availableCategories"
+      })
+      .state("about-us",{
+        "url":"/about-us",
+        "templateUrl":"views/about-us.html"
+      })
+      .state("common-questions",{
+        "url":"/common-questions",
+        "templateUrl":"views/common-questions.html"
+      })
+      .state("category-page",{
+        "url":"/available-categories/:category",
+        "templateUrl":"views/category-page.html",
+        "controller":"categoryPage"
+      })
+      .state("question-page",{
+        "url":"/available-categories/:category/question/:question",
+        "templateUrl":"views/question-page.html",
+        "controller":"questionPage"
+      })
+      .state("new-question",{
+        "url":"/new-question",
+        "templateUrl":"views/new-question.html",
+        "controller":"newQuestion"
+      })
+      .state("your-questions-list",{
+        "url":"/your-information/questions-list",
+        "templateUrl":"views/your-questions.html",
+        "controller":"yourQuestions",
+        "needLogin":true
+      })
+      .state("uploaded-files",{
+        "url":"/uploaded-files",
+        "templateUrl":"views/uploaded-files.html",
+        "controller":"uploadedFiles"
+      })
+      .state("check-uploads",{
+        "url":"/uploaded-files/:id",
+        "templateUrl":"views/check-uploads.html",
+        "controller":"checkUploads"
+      })
+      .state("send-archives",{
+        "url":"/send-archives/:id_category",
+        "templateUrl":"views/send-archives.html",
+        "controller":"sendArchives"
+      })
+      .state("news",{
+        "url":"/your-news",
+        "templateUrl":"views/news.html",
+        "controller":"userNews",
+        "needLogin":true
+      })
+      $urlRouterProvider.otherwise('/');
+      $locationProvider.html5Mode({
+        enabled: true,
+      });
+  })
+  .run(function($rootScope,$cookies,userConfiguration,$state){
+    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams){
+      var user = $cookies.get("user_id");
+
+      if(toState.needLogin){
+        var login_test = userConfiguration.check_data(user);
+
+        if(login_test){
+          event.preventDefault();
+          $state.go("/");
+        }else{
+          //Do nothing
+        }
+      }
+    });
+  });

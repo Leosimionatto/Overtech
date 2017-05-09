@@ -1,0 +1,133 @@
+<div class="container" ng-if="menu_loaded && !reconnected" ng-init="load_question_information()">
+  <div class="question-page" ng-if="!db_not_responding && question && answers">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="question-page-header">
+          <h3><b>{{question.title}}</b></h3>
+          Aqui você tem a capacidade de ajudar este usuário com a dúvida em questão. Lembre-se que você pode compartilhar essa pergunta em alguma rede social, ou até mesmo enviá-la
+          por e-mail para um usuário de forma a proporcionar uma certa divulgação para a mesma.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="question-page-body">
+          <div class="action-buttons">
+            <button type="button" ng-click="return(category)">Outras Perguntas <i class="fa fa-info-circle"></i></button>
+            <button type="button" id="right" ui-sref="new-question">Registrar uma pergunta <i class="fa fa-users"></i></button>
+          </div>
+          <div class="question-content" style="border-left:4px solid #faebcc">
+            <div class="inside-space">
+              <h4><i class="fa fa-comment"></i><b> Informações gerais:</b></h4>
+              <div class="table">
+                <div class="table-row-group">
+                  <div class="table-cell" style="width:6%">
+                    <img src="icons/png/calculation.png" id="inline-block" width="100%">
+                  </div>
+                  <div class="table-cell">
+                    <div id="inline-block" style="vertical-align:middle;margin-left:8px">
+                      <span class="block"><b>Título:</b> {{question.title}}</span>
+                      <span class="block"><b>Pergunta:</b></span>
+                      <span class="block" style="white-space:pre-line">{{question.body}}</span>
+                      <span class="block"><b>Enviada por:</b> <a href="" ng-click="userProfile(question)">{{question.user_name}}</a> em <b>{{question.creation_date | date:'dd/MM/yyyy'}}</b></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="question-content" style="border-left:4px solid #60B55C">
+            <div class="inside-space">
+              <h4><b><i class="fa fa-comments"></i> Respostas já cadastradas:</b></h4>
+              <div class="table">
+                <div class="answer" ng-repeat="answer in answers | orderBy:'+creation_date'">
+                  <div class="table-row-group" style="width:100%">
+                    <div class="table-cell" style="width:6%">
+                      <img src="icons/png/conference.png" width="100%">
+                    </div>
+                    <div class="table-cell">
+                      <div style="vertical-align:middle;margin-left:8px;word-wrap:break-word">
+                        <div ng-if="answer.id_user == user_id">
+                          <a href="" ng-click="delete_answer(answer)" id="right" ng-if="!loading && !success_delete"><i class="fa fa-trash" style="font-size:16px"></i></a>
+                          <a href="" ng-click="edit_answer(answer)" id="right"><i class="fa fa-edit" style="margin-right:2px;font-size:16px"></i></a>
+                        </div>
+                        <span class="block"><b>{{$index + 1 + "º"}} Resposta: Qual a idéia deste usuário?</b></span>
+                        <span class="block" style="margin-top:3px;white-space:pre-line">{{answer.answer}}</span>
+                        <span class="block" style="margin-top:3px"><b>Enviada por:</b> <a href="" ng-click="userProfile(answer)">{{answer.user_name}}</a> em <b>{{answer.creation_date | date:'dd/MM/yyyy'}}</b></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="divider-answers" ng-if="$index != answers.length - 1"></div>
+                </div>
+                <div ng-if="answers.length == 0">
+                  Esta pergunta ainda não possui nenhuma resposta cadastrada. Seja o primeiro a responder essa pergunta!
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="question-content" style="border-left:4px solid #60B55C">
+            <div class="inside-space">
+              <h4 class="spacing-top"><i class="fa fa-gift"></i> <b>Responda agora mesmo:</b></h4>
+              <h5><b>Como responder?</b></h5>
+              Para responder esssa pergunta, basta preencher as informações abaixo e em seguida clicar em <b>Enviar resposta</b>.
+              <form ng-submit="add_answer(answer)">
+                <textarea ng-model="answer" placeholder="Você sabe a resposta? Então ajude este usuário agora mesmo!! Envie sua resposta o mais rápido possível para ajudar este usuário a resolver o seu problema" ng-required></textarea>
+                <button type="submit" ng-if="!loading && !answer_additioned">Enviar a resposta<i class="fa fa-heart" style="font-size:12px;color:#C44D58"></i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="success-register" ng-if="success_delete">
+  <b>Sucesso!</b> - Sua resposta foi excluída com sucesso
+</div>
+<div class="success-register" ng-if="answer_additioned">
+  <b>Sucesso!!</b> - Sua resposta foi adicionada com sucesso
+</div>
+<div global-error ng-if="globalError"></div>
+<div unlogged ng-if="unlogged"></div>
+<div server-error ng-if="db_not_responding"></div>
+<div success-reconnect ng-if="reconnected"></div>
+<div loading-server ng-if="loading"></div>
+<div timeout-error ng-if="timeout_error"></div>
+<div db-not-responding ng-if="db_not_responding"></div>
+<div status-text ng-if="statusText"></div>
+<div class="container-fluid">
+  <div class="footer">
+    <div class="row">
+      <div class="col-sm-3">
+        <h4><b>Ícones e imagens:</b></h4>
+        Todas as imagens encontradas aqui foram retiradas do seguinte site: <b>http://www.flaticon.com/</b><br>
+        <div style="margin-top:3px">
+          - Icons made by <a title="Flat Icons" href="http://www.flaticon.com/authors/flat-icons">Flat Icons</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Freepik" href="http://www.freepik.com">Freepik</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Eucalyp" href="http://www.flaticon.com/authors/eucalyp"> Eucalyp</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Popcorns Arts" href="http://www.flaticon.com/authors/popcorns-arts">Popcorns Arts</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Quem somos?</b></h4>
+        Para entrar em contato conosco, basta enviar uma mensagem para <b>gilberto.giro.resende@gmail.com</b> ou então enviar uma mensagem
+        de texto para o número <b>(11)97565-4389</b>.
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Informações do aplicativo</b></h4>
+        Para visualizar as informações mais específicas da aplicação, basta <a href="">clicar aqui</a>. Nesta página você pode visualizar informações como,
+        tecnologias utilizadas, documentação da aplicação, manual de uso, etc.
+      </div>
+      <div class="col-sm-3" id="icons-bottom">
+        <div class="text-left">
+          <h4><b>Compartilhe com os amigos:</b></h4>
+          Por favor, assim que possível, compartilhe nossa aplicação com seus amigos para que ela passe a atingir um público considerável
+          de estudantes para que possamos criar um ambiente de estudos bem estruturado.
+        </div>
+        <a href="" class="i-color"><i class="fa fa-facebook-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-google-plus-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

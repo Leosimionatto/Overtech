@@ -1,0 +1,102 @@
+<div class="container" ng-if="menu_loaded && !reconnected" ng-init="your_information()">
+  <div class="your-questions-page" ng-if="!db_not_responding && user">
+    <div class="your-questions-page-header">
+      <h3><b>Visualize aqui suas perguntas!</b></h3>
+      Abaixo segue uma lista com todas as suas perguntas já cadastradas no sistema. Lembre-se de que você pode alterar as informações das mesmas seguindo os
+      passos abaixo, não possuindo restrições específicas para realizar este procedimento!
+    </div>
+    <div class="your-questions-page-body">
+      <div class="filter-your-questions">
+        <form ng-submit="filter_questions(current_questions,search)">
+          <input type="text" class="form-input" placeholder="O que você busca?" ng-model="search.name">
+          <select class="form-input" ng-model="search.category" ng-options="category.id as category.name for category in categories">
+            <option value="">Categoria relacionada?</option>
+          </select>
+          <button type="submit" class="form-input">Buscar <i class="fa fa-globe"></i></button>
+        </form>
+      </div>
+      <div class="list-questions">
+        <table class="list-questions-table">
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Categoria relacionada</th>
+              <th>Editar</th>
+              <th>
+                Excluir
+                <i class="fa fa-bookmark" id="right"></i>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-if="questions.length > 0" ng-repeat="question in some_questions">
+              <td style="text-align:left">
+                <b>{{question.title}}</b>
+                <span class="sub-title block" style="font-size:12px">
+                  Lembre-se que é nessa página em que você edita e/ou exclui suas perguntas
+                </span>
+              </td>
+              <td>{{categories[question.id_category - 1].name}}</td>
+              <td><a href="" ng-click="edit_question(question)">Editar informações <i class="fa fa-gears"></i></a></td>
+              <td><a href="" ng-click="delete_question(question)">Excluir registro <i class="fa fa-trash"></i></a></td>
+            </tr>
+            <tr>
+              <td colspan="4" ng-if="questions.length == 0 || some_questions.length == 0">Nenhuma pergunta encontrada <i class="fa fa-flag"></i></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="my-pagination">
+          {{some_questions.length}} de {{questions.length}}
+          <!-- Visualizar mais -->
+          <a href="" id="right" ng-if="some_questions.length != questions.length" ng-click="showMore(cont)">Visualizar mais categorias <i class="fa fa-plus-circle"></i></a>
+          <!-- Visualizar menos -->
+          <a href="" id="right" ng-if="some_questions.length == questions.length && questions.length > 10" ng-click="showLess(categories)">Visualizar menos categorias <i class="fa fa-minus-square"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="success-reconnect" ng-if="success_delete">
+  <b>Mensagem de sucesso</b> - Questão excluída com sucesso
+</div>
+<div server-error ng-if="db_not_responding"></div>
+<div success-reconnect ng-if="reconnected"></div>
+<div loading-server ng-if="loading"></div>
+<div timeout-error ng-if="timeout_error"></div>
+<div db-not-responding ng-if="db_not_responding"></div>
+<div class="container-fluid">
+  <div class="footer">
+    <div class="row">
+      <div class="col-sm-3">
+        <h4><b>Ícones e imagens:</b></h4>
+        Todas as imagens encontradas aqui foram retiradas do seguinte site: <b>http://www.flaticon.com/</b><br>
+        <div style="margin-top:3px">
+          - Icons made by <a title="Flat Icons" href="http://www.flaticon.com/authors/flat-icons">Flat Icons</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Freepik" href="http://www.freepik.com">Freepik</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Eucalyp" href="http://www.flaticon.com/authors/eucalyp"> Eucalyp</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Popcorns Arts" href="http://www.flaticon.com/authors/popcorns-arts">Popcorns Arts</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Quem somos?</b></h4>
+        Para entrar em contato conosco, basta enviar uma mensagem para <b>gilberto.giro.resende@gmail.com</b> ou então enviar uma mensagem
+        de texto para o número <b>(11)97565-4389</b>.
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Informações do aplicativo</b></h4>
+        Para visualizar as informações mais específicas da aplicação, basta <a href="">clicar aqui</a>. Nesta página você pode visualizar informações como,
+        tecnologias utilizadas, documentação da aplicação, manual de uso, etc.
+      </div>
+      <div class="col-sm-3" id="icons-bottom">
+        <div class="text-left">
+          <h4><b>Compartilhe com os amigos:</b></h4>
+          Por favor, assim que possível, compartilhe nossa aplicação com seus amigos para que ela passe a atingir um público considerável
+          de estudantes para que possamos criar um ambiente de estudos bem estruturado.
+        </div>
+        <a href="" class="i-color"><i class="fa fa-facebook-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-google-plus-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

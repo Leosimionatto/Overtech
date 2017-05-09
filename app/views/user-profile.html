@@ -1,0 +1,155 @@
+<div ng-init="all_information()" ng-if="menu_loaded && !reconnected"></div>
+<div class="container" ng-show="!db_not_responding && user && uploads">
+  <div class="user-profile">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="user-profile-header">
+          <h4><b>Informações de {{user.name}}:</b></h4>
+          Visualize todas as informações disponíveis relacionadas a este usuário, como por exemplo, categorias, informações pessoais, etc.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="user-profile-body">
+        <div class="col-sm-12">
+          <div class="action-buttons">
+            <button type="button" ui-sref="users">Lista de usuários <i class="fa fa-users"></i></button>
+            <!-- <button type="button" id="right">Conversar com este usuário <i class="fa fa-fax"></i></button> -->
+          </div>
+        </div>
+        <div class="col-sm-8">
+          <div class="information">
+            <div class="information-header">
+              Informações pessoais :
+              <i class="fa fa-bookmark" id="right"></i>
+            </div>
+            <div class="information-body">
+              <div class="table" style="margin:4px">
+                <div class="table-row-group">
+                  <div class="table-cell" style="width:15%;vertical-align:middle">
+                    <img src="icons/png/business-presentation.png" width="85%">
+                  </div>
+                  <div class="table-cell" style="vertical-align:middle">
+                    <span class="block"><b>Nome:</b> {{user.name}}</span>
+                    <span class="block"><b>Idade:</b> {{user.age + " anos"}}</span>
+                    <span class="block"><b>Semestre:</b> {{user.semester}}º semestre</span>
+                    <span class="block"><b>Curso:</b> {{courses[user.course - 1]["name"]}}</span>
+                    <span class="block"><b>E-mail:</b> {{user.email}}</span>
+                    <span class="block"><b>Categorias cadastradas:</b> Este usuário participa de {{categories.length}} categorias</span>
+                    <span class="block" style="text-align:right"><b>Último login efetuado em:</b> {{user.last_login | date:'dd/MM/yyyy'}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="information">
+            <div class="information-header">
+              Informações sobre uploads:
+              <i class="fa fa-coffee" id="right"></i>
+            </div>
+            <div class="information-body">
+              <div class="table">
+                <div class="table-row-group">
+                  <div class="table-cell" style="width:15%;vertical-align:top">
+                    <img src="icons/png/boss-2.png" width="85%">
+                  </div>
+                  <div class="table-cell" style="vertical-align:top">
+                    <div class="uploads-explanation">
+                      <span class="block" style="font-size:15px"><b>Em que categorias esse usuário já contribuiu?</b></span>
+                      Aqui você consegue visualizar as contribuições por parte deste usuário para com as categorias do sistema. São elas:
+                    </div>
+                    <div class="user-upload" ng-if="uploads.length > 0" ng-repeat="upload in uploads">
+                      <span class="block title"><b><u>{{$index + 1}}º arquivo</u></b> - {{categories[upload.id_category - 1].name}}</span>
+                      <span class="block"><b>Nome:</b> {{upload.name}}</span>
+                      <span class="block"><b>Matéria relacionada:</b> {{upload.matter}}</span>
+                      <span class="block"><b>Tipo arquivo:</b> {{upload.type}}</span>
+                      <span class="block"><b>Baixar arquivo:</b> <a href="{{upload.path}}">{{upload.name}}</a></span>
+                      <span class="block"><b>Postado em:</b> {{upload.creation_date | date:'dd/MM/yyyy'}}</span>
+                    </div>
+                    <div ng-if="uploads.length == 0">
+                      <span class="block error">Este usuário ainda não compartilhou nenhum arquivo.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="explanation">
+            <div class="explanation-header">
+              Entendendo esta página!
+              <i class="fa fa-question-circle" id="right"></i>
+            </div>
+            <div class="explanation-body">
+              Esta é uma página onde você, nosso usuário, pode visualizar todas as informações referentes ao perfil de usuário em questão. Além disso, é interessante constar também que aqui você consegue
+              acompanhar todas as contribuições realizadas por este usuário com relação as categorias do curso ao qual este pertence.
+            </div>
+          </div>
+          <div class="explanation">
+            <div class="explanation-header">
+              Deseja conversar com este usuário?
+              <i class="fa fa-handshake-o" id="right"></i>
+            </div>
+            <div class="explanation-body">
+              No momento ainda não disponibilizamos o nosso sistema de chat por conta de que estamos tentando desenvolve-lo da melhor forma possível, mas fique tranquilo, logo esta funcionalidade estará "rodando"
+              em nosso sistema para lhe auxiliar em suas tarefas.
+            </div>
+          </div>
+          <div class="explanation">
+            <div class="explanation-header">
+              Deseja compartilhar seus conteúdos?
+              <i class="fa fa-briefcase" id="right"></i>
+            </div>
+            <div class="explanation-body">
+              Se a sua resposta foi sim, fique tranquilo, esse é um procedimento bem simples de ser realizado e garanto que não lhe custará mais de <b>2 minutos</b>. Para compartilhar essas informações, você tem duas possibilidades,
+              que são: <a ui-sref="uploaded-files">clicar aqui</a> ou então <b>seguir o passo a passo</b> abaixo:<br>
+              <b>1)</b> Entrar na página <b>Arquivos por matéria</b>.<br>
+              <b>2)</b> Selecionar a matéria para com a qual deseja enviar seu arquivo.<br>
+              <b>3)</b> Preencher as informações requisitadas e clicar em <b>Enviar</b>.<br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div status-text ng-if="statusText"></div>
+<div server-error ng-if="db_not_responding"></div>
+<div loading-server ng-if="loading"></div>
+<div class="container-fluid">
+  <div class="footer">
+    <div class="row">
+      <div class="col-sm-3">
+        <h4><b>Ícones e imagens:</b></h4>
+        Todas as imagens encontradas aqui foram retiradas do seguinte site: <b>http://www.flaticon.com/</b><br>
+        <div style="margin-top:3px">
+          - Icons made by <a title="Flat Icons" href="http://www.flaticon.com/authors/flat-icons">Flat Icons</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Freepik" href="http://www.freepik.com">Freepik</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Eucalyp" href="http://www.flaticon.com/authors/eucalyp"> Eucalyp</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Popcorns Arts" href="http://www.flaticon.com/authors/popcorns-arts">Popcorns Arts</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Quem somos?</b></h4>
+        Para entrar em contato conosco, basta enviar uma mensagem para <b>gilberto.giro.resende@gmail.com</b> ou então enviar uma mensagem
+        de texto para o número <b>(11)97565-4389</b>.
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Informações do aplicativo</b></h4>
+        Para visualizar as informações mais específicas da aplicação, basta <a href="">clicar aqui</a>. Nesta página você pode visualizar informações como,
+        tecnologias utilizadas, documentação da aplicação, manual de uso, etc.
+      </div>
+      <div class="col-sm-3" id="icons-bottom">
+        <div class="text-left">
+          <h4><b>Compartilhe com os amigos:</b></h4>
+          Por favor, assim que possível, compartilhe nossa aplicação com seus amigos para que ela passe a atingir um público considerável
+          de estudantes para que possamos criar um ambiente de estudos bem estruturado.
+        </div>
+        <a href="" class="i-color"><i class="fa fa-facebook-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-google-plus-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

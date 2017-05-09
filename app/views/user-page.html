@@ -1,0 +1,125 @@
+<div class="container" ng-if="menu_loaded && !reconnected" ng-init="your_information()">
+  <div class="user-information" ng-if="!db_not_responding && user && categories">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="user-information-header">
+          <h3><b>Suas informações:</b></h3>
+          Visualize todas as suas informações pessoais e gerencie suas categorias de maneira simples e intuitiva.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="user-information-body">
+        <div class="col-sm-12">
+          <div class="user-information-box">
+            <div class="user-information-box-header">
+              {{user.name}}:
+              <i class="fa fa-bookmark" id="right" style="font-size:19px"></i>
+            </div>
+            <div class="user-information-box-body">
+              <div class="table">
+                <div class="table-row-group">
+                  <div class="table-cell" style="width:12%;text-align:center" id="image-part">
+                    <img src="icons/png/avatars/man-28.png" width="80%">
+                  </div>
+                  <div class="table-cell" style="padding-left:10px;vertical-align:top">
+                    <h5><b>O que é essa página?</b></h5>
+                    O objetivo da aplicação é o de facilitar ao máximo a sua vida, então para que você possa gerenciar suas informações
+                    disponibilizamos um sistema onde você pode visualizar todas as suas informações com praticidade e intuitividade.
+                    <h5><b>O que está disponível sobre você?</b></h5>
+                    <span class="block"><b>Nome:</b> {{user.name}}</span>
+                    <span class="block"><b>Idade:</b> {{user.age}} anos</span>
+                    <span class="block"><b>E-mail:</b> {{user.email}}</span>
+                    <span class="block"><b>Semestre:</b> {{user.semester}}º semestre</span>
+                    <span class="block"><b>Curso:</b> {{courses[user.course - 1].name}}</span>
+                    <span class="block text-right" style="margin-right:5px"><span id="left"><b>Data de cadastro:</b> {{user.creation_date | date:'dd/MM/yyyy'}}</span><b>Último login:</b> {{user.last_login | date:'dd/MM/yyyy'}}</span>
+                    <!-- <span class="block"><b>Quais são suas categorias?</b> AngularJS, Jquery, JavaScript</span> -->
+                  </div>
+                </div>
+              </div>
+              <div class="your-profile-statistics">
+                <button type="button" ui-sref="news" id="left">Suas novidades <i class="fa fa-bell-o"></i></button>
+                <button type="button" ui-sref="your-questions-list">Editar suas perguntas <i class="fa fa-edit"></i></button>
+                <button type="button" ng-click="edit_your_information()">Editar informações <i class="fa fa-edit"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="category-information-box" ng-repeat="category in categories">
+            <div class="category-information-box-header">
+              Informações da categoria - {{category.name}}:
+              <i class="fa fa-bookmark" id="right" style="font-size:19px"></i>
+            </div>
+            <div class="category-information-box-body">
+              <div class="table">
+                <div class="table-row-group">
+                  <div class="table-cell" style="width:12%;text-align:center" id="image-part">
+                    <img src="icons/png/computer.png" width="80%">
+                  </div>
+                  <div class="table-cell" style="padding-left:10px;vertical-align:top">
+                    <h5><b>Como alterar as informações de minha categoria?</b></h5>
+                    Gerencie todas as informações de sua categoria através de uma sistema simples e intuitivo. Nunca foi tão fácil realizar alterações
+                    em suas categorias!
+                    <h5><b>O que está disponível para os usuários?</b></h5>
+                    <span class="block"><b>Nome:</b> {{category.name}}</span>
+                    <span class="block"><b>Semestre:</b> {{category.semester}}º semestre</span>
+                    <span class="block"><b>Curso:</b> {{courses[category.course - 1].name}}</span>
+                    <span class="block"><b>Deseja contribuir com seus colegas?</b> Se a resposta for sim, não perca mais tempo, ajude seus amigos/colegas universitários a estudarem e tirarem suas dúvidas disponibilizando seus resumos, fontes de estudo, dentre
+                    outras informações.</span>
+                    <span class="block"><b>Professores também podem colaborar?</b> Sim, da mesma forma que os alunos da faculdade, os professores também tem a possibilidade de disponibilizar seus conteúdos no sistema!</span>
+                  </div>
+                </div>
+              </div>
+              <div class="category-options">
+                <button type="button" name="button" id="left" ng-click="category_page(category)">Página da categoria <i class="fa fa-coffee"></i></button>
+                <button type="button" name="button" ng-click="send_archives(category.id)">Compartilhar conteúdos <i class="fa fa-archive"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div server-error ng-if="db_not_responding"></div>
+<div success-reconnect ng-if="reconnected"></div>
+<div loading-server ng-if="loading"></div>
+<div timeout-error ng-if="timeout_error"></div>
+<div db-not-responding ng-if="db_not_responding"></div>
+<div class="container-fluid">
+  <div class="footer">
+    <div class="row">
+      <div class="col-sm-3">
+        <h4><b>Ícones e imagens:</b></h4>
+        Todas as imagens encontradas aqui foram retiradas do seguinte site: <b>http://www.flaticon.com/</b><br>
+        <div style="margin-top:3px">
+          - Icons made by <a title="Flat Icons" href="http://www.flaticon.com/authors/flat-icons">Flat Icons</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Freepik" href="http://www.freepik.com">Freepik</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Eucalyp" href="http://www.flaticon.com/authors/eucalyp"> Eucalyp</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;<br>
+          - Icons made by <a title="Popcorns Arts" href="http://www.flaticon.com/authors/popcorns-arts">Popcorns Arts</a> from <a title="Flaticon" href="http://www.flaticon.com">Flaticon</a>&nbsp;
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Quem somos?</b></h4>
+        Para entrar em contato conosco, basta enviar uma mensagem para <b>gilberto.giro.resende@gmail.com</b> ou então enviar uma mensagem
+        de texto para o número <b>(11)97565-4389</b>.
+      </div>
+      <div class="col-sm-3">
+        <h4><b>Informações do aplicativo</b></h4>
+        Para visualizar as informações mais específicas da aplicação, basta <a href="">clicar aqui</a>. Nesta página você pode visualizar informações como,
+        tecnologias utilizadas, documentação da aplicação, manual de uso, etc.
+      </div>
+      <div class="col-sm-3" id="icons-bottom">
+        <div class="text-left">
+          <h4><b>Compartilhe com os amigos:</b></h4>
+          Por favor, assim que possível, compartilhe nossa aplicação com seus amigos para que ela passe a atingir um público considerável
+          de estudantes para que possamos criar um ambiente de estudos bem estruturado.
+        </div>
+        <a href="" class="i-color"><i class="fa fa-facebook-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-google-plus-square"></i></a>
+        <a href="" class="i-color"><i class="fa fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

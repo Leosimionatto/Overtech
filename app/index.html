@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Overtech</title>
+    <base href="/fatec_system/app/"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Arquivos do Bootstrap -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+
+    <!-- Meus arquivos CSS -->
+    <link rel="stylesheet" href="design/style.css">
+
+    <!-- Arquivos do FontAwesome -->
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
+
+    <!-- Fontes do Google -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
+  </head>
+
+  <body ng-app="fatec_system">
+    <div menu-top></div>
+    <div ui-view></div>
+    <!-- <div message-system></div> -->
+  </body>
+
+  <!-- Arquivos Jquery -->
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+
+  <!-- Bibliotecas do Angular -->
+  <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+  <script type="text/javascript" src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+  <script type="text/javascript" src="node_modules/angular-cookies/angular-cookies.min.js"></script>
+
+  <!-- Meus arquivos Angular -->
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/controllers/menu-top.js"></script>
+  <script type="text/javascript" src="js/controllers/message-system.js"></script>
+  <script type="text/javascript" src="js/controllers/initial-controller.js"></script>
+  <script type="text/javascript" src="js/controllers/search-users.js"></script>
+  <script type="text/javascript" src="js/controllers/user-profile.js"></script>
+  <script type="text/javascript" src="js/controllers/user-page.js"></script>
+  <script type="text/javascript" src="js/controllers/available-categories-controller.js"></script>
+  <script type="text/javascript" src="js/controllers/category-page.js"></script>
+  <script type="text/javascript" src="js/controllers/question-page.js"></script>
+  <script type="text/javascript" src="js/controllers/new-question.js"></script>
+  <script type="text/javascript" src="js/controllers/your-questions.js"></script>
+  <script type="text/javascript" src="js/controllers/send-archives.js"></script>
+  <script type="text/javascript" src="js/controllers/uploaded-files.js"></script>
+  <script type="text/javascript" src="js/controllers/check-uploads.js"></script>
+  <script type="text/javascript" src="js/controllers/user-news.js"></script>
+
+  <!-- Minhas diretivas do AngularJS -->
+  <script type="text/javascript" src="js/directives/menu-top-directive.js"></script>
+  <!-- <script type="text/javascript" src="js/directives/message-system-directive.js"></script> -->
+  <script type="text/javascript" src="js/directives/loading-directive.js"></script>
+  <script type="text/javascript" src="js/directives/timeout-error.js"></script>
+  <script type="text/javascript" src="js/directives/status-text.js"></script>
+  <script type="text/javascript" src="js/directives/db-not-responding.js"></script>
+  <script type="text/javascript" src="js/directives/success-reconnect.js"></script>
+  <script type="text/javascript" src="js/directives/unlogged.js"></script>
+  <script type="text/javascript" src="js/directives/error-404.js"></script>
+  <script type="text/javascript" src="js/directives/global-error-message.js"></script>
+  <script type="text/javascript" src="js/directives/incorrect-fields.js"></script>
+  <script type="text/javascript" src="js/directives/random-message.js"></script>
+
+  <!-- Meus serviços do AngularJS -->
+  <script type="text/javascript" src="js/services/requests.js"></script>
+  <script type="text/javascript" src="js/services/user-configuration.js"></script>
+
+  <!-- Angular roteamento -->
+  <script type="text/javascript" src="js/routes/routing.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+  <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+
+</html>
