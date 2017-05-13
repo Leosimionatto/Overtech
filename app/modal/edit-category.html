@@ -12,7 +12,7 @@
       <input type="email" ng-class="{invalid_params:edit_error}" placeholder="Qual o nome?" ng-model="category.name" class="form-input" ng-required="true"><br>
       <textarea ng-class="{invalid_params:edit_error}" placeholder="Qual a descrição?" ng-model="category.description" ng-required="true" style="margin-top:6px"></textarea>
       <textarea ng-class="{invalid_params:edit_error}" placeholder="Qual o conteúdo?" ng-model="category.content" ng-required="true"></textarea>
-      <button type="submit" class="btn btn-success">Salvar as alterações <i class="fa fa-coffee"></i></button>
+      <button type="submit" class="btn btn-success" ng-if="!loading">Salvar as alterações <i class="fa fa-coffee"></i></button>
     </form>
   </div>
   <div class="modal-footer">

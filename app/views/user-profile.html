@@ -63,7 +63,7 @@
                       <span class="block"><b>Nome:</b> {{upload.name}}</span>
                       <span class="block"><b>Matéria relacionada:</b> {{upload.matter}}</span>
                       <span class="block"><b>Tipo arquivo:</b> {{upload.type}}</span>
-                      <span class="block"><b>Baixar arquivo:</b> <a href="{{upload.path}}">{{upload.name}}</a></span>
+                      <span class="block"><b>Baixar arquivo:</b> <a target="_self" href="{{upload.path}}" download="{{upload.name}}">{{upload.name}}</a></span>
                       <span class="block"><b>Postado em:</b> {{upload.creation_date | date:'dd/MM/yyyy'}}</span>
                     </div>
                     <div ng-if="uploads.length == 0">

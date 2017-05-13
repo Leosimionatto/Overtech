@@ -1,2 +1,3 @@
 # Ignore
 app/node_modules/
+app/dist/

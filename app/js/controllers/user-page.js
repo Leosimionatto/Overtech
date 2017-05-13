@@ -108,7 +108,7 @@ angular
       }
     }
     function send_archives(category){
-      $state.go("send-archives",{"id":category});
+      $state.go("send-archives",{"id_category":category});
     }
     $scope.edit_your_information = function(){
       $scope.modalInstance = $uibModal.open({

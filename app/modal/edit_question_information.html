@@ -11,7 +11,7 @@
     <form class="login-form" ng-submit="update_question(new_question)">
       <input type="text" ng-class="{invalid_params:edit_error}" placeholder="Qual o título?" ng-model="new_question.title" ng-value="question.title" class="form-input" ng-required="true"><br>
       <textarea ng-class="{invalid_params:edit_error}" ng-bind="question.body" style="height:120px" placeholder="Qual o corpo da pergunta?" ng-model="new_question.body" ng-required="true"></textarea>
-      <button type="submit" class="btn btn-success">Salvar as alterações <i class="fa fa-coffee"></i></button>
+      <button type="submit" class="btn btn-success" ng-if="!loading && !success_update">Salvar as alterações <i class="fa fa-coffee"></i></button>
     </form>
   </div>
   <div class="modal-footer">

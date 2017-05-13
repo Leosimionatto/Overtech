@@ -11,6 +11,12 @@
   .container-fluid .footer h4{
     font-size:17px !important;
   }
+  .container .initial-page-body .image-carousel .first-image img{
+    height:300px !important;
+  }
+  .container .initial-page-body .image-carousel .second-image img{
+    height:300px !important;
+  }
 }
 ::-webkit-scrollbar{
     width:10px;
@@ -78,7 +84,7 @@ html{
 /* Este CSS pertence ao menu que será disponibilizado nos celulares */
 #cell-phone-menu .menu-top{
   padding:15px;
-  display:block;
+  display:none;
 }
 #cell-phone-menu .menu-top i{
   font-size:19px;
@@ -169,6 +175,12 @@ html{
   color:#C9D8E5;
   cursor:pointer;
   position:absolute;
+}
+.initial-page-body .first-image img{
+  height:400px;
+}
+.initial-page-body .second-image img{
+  height:400px;
 }
 .image-carousel .second-image h4{
   top:10px;
@@ -1307,6 +1319,28 @@ html{
 }
 .user-news-body tbody tr:hover{
   background-color:#F0F0F0;
+}
+/* Este CSS pertence a página screen_size_error.html */
+.screen_size_error{
+  font-size:13px;
+  margin-top:100px;
+  text-align:center;
+}
+.screen_size_error h3{
+  margin-top:3px;
+}
+.screen_size_error_footer{
+  left:0;
+  bottom:0;
+  width:100%;
+  padding:10px;
+  color:#B0B0B0;
+  font-size:13px;
+  position:absolute;
+  background-color:#373737;
+}
+.screen_size_error_footer a{
+  color:#48B5E7;
 }
 /* Este CSS pertence ao footer de todas as páginas */
 .footer{

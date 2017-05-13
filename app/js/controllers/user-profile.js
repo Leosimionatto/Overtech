@@ -41,8 +41,27 @@ angular
       var request = httpService.request("user-uploads.php",{'id':user.id});
       request
         .then(function(data){
-          $scope.loading = undefined;
           $scope.uploads = data.data;
+          user_participation();
+        })
+        .catch(function(error){
+          $scope.loading = undefined;
+          var respTime = new Date().getTime() - startTime;
+          if(respTime >= config){
+            $scope.timeout_error = true;
+          }else{
+            $scope.db_not_responding = true;
+          }
+        })
+    }
+    function user_participation(){
+      var config = 10000;
+      var startTime = new Date().getTime();
+      var request = httpService.request("user-categories.php",{"id_course":$scope.user.course,"semester":$scope.user.semester});
+      request
+        .then(function(data){
+          $scope.loading = undefined;
+          $scope.categories = data.data;
         })
         .catch(function(error){
           $scope.loading = undefined;

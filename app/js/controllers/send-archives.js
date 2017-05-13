@@ -1,6 +1,6 @@
 angular
   .module("fatec_system")
-  .controller("sendArchives", function($scope,$stateParams,$http,$timeout,$cookies,$state){
+  .controller("sendArchives", function($scope,$stateParams,$http,$timeout,$cookies,$state,$window){
     // My declarations
     $scope.form = [];
     $scope.files = [];

@@ -19,32 +19,12 @@ angular
     $scope.category_information = category_information;
 
     function category_information(){
-      var config = 10000;
-      $scope.loading = true;
-      var startTime = new Date().getTime();
-      var request = httpService.request('specific-category.php',{"id":id});
-      request
-        .then(function(data){
-          if(data.status == 204){
-            $scope.statusText = data.statusText;
-          }else{
-            $scope.category = data.data[0];
-            //Call my function to find all the questions of this category
-            find_questions($scope.category);
-          }
-        })
-        .catch(function(error){
-          $scope.loading = undefined;
-          var respTime = new Date().getTime() - startTime;
-          if(respTime >= config){
-            $scope.timeout_error = true;
-          }else{
-            $scope.db_not_responding = true;
-          }
-        })
+      $scope.category = $scope.categories[id - 1];
+      find_questions($scope.category);
     }
     function find_questions(category){
       var config = 10000;
+      $scope.loading = true;
       var startTime = new Date().getTime();
       var request = httpService.request('select-all-questions.php',{"id":category.id,"course":category.course});
       request
@@ -134,6 +114,3 @@ angular
       $state.go("question-page",{"category":category.id,"question":question.id});
     }
   });
-// $scope.questions.sort(function(a, b) {
-//   return a["title"] - b["title"];
-// });

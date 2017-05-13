@@ -16,7 +16,7 @@
         <option value="">Qual seu curso?</option>
       </select>
       <input type="email" ng-class="{invalid_params:edit_error}" placeholder="Qual seu email?" ng-value="user.email" ng-model="edit_user.email" class="form-input" ng-required="true"><br>
-      <button type="submit" class="btn btn-success" style="margin-top:6px">Salvar as alterações <i class="fa fa-coffee"></i></button>
+      <button type="submit" class="btn btn-success" style="margin-top:6px" ng-if="!loading && !information_edited">Salvar as alterações <i class="fa fa-coffee"></i></button>
     </form>
   </div>
   <div class="modal-footer">

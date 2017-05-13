@@ -83,23 +83,33 @@ angular
         "controller":"userNews",
         "needLogin":true
       })
+      .state("screen_size_error",{
+        "url":"/screen_size_error",
+        "templateUrl":"views/screen_size_error.html"
+      })
       $urlRouterProvider.otherwise('/');
       $locationProvider.html5Mode({
         enabled: true,
       });
   })
-  .run(function($rootScope,$cookies,userConfiguration,$state){
+  .run(function($rootScope,$cookies,userConfiguration,$state,$window){
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams){
       var user = $cookies.get("user_id");
+      var screenWidth = $window.innerWidth;
 
-      if(toState.needLogin){
-        var login_test = userConfiguration.check_data(user);
+      if(screenWidth < 1024 && toState.name != "screen_size_error"){
+        event.preventDefault();
+        $state.go('screen_size_error');
+      }else{
+        if(toState.needLogin){
+          var login_test = userConfiguration.check_data(user);
 
-        if(login_test){
-          event.preventDefault();
-          $state.go("/");
-        }else{
-          //Do nothing
+          if(login_test){
+            event.preventDefault();
+            $state.go("/");
+          }else{
+            //Do nothing
+          }
         }
       }
     });

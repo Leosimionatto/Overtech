@@ -1,10 +1,10 @@
 $(document).ready(function(){
-  if($(window).width() <= 768){
-    $("#computer-menu").css("display","none");
-    $("#cell-phone-menu").css("display","block");
+  if($(window).width() <= 1020){
+    $(".desktop-menu").css("display","none");
+    $(".mobile-menu").css("display","block");
   }else{
-    $("#cell-phone-menu").css("display","none");
-    $("#computer-menu").css("display","block");
+    $(".mobile-menu").css("display","none");
+    $(".desktop-menu").css("display","block");
   }
   $("#messages").click(function(){
     if($(".message-system").css("display") == "block"){
@@ -36,11 +36,11 @@ $(document).ready(function(){
 });
 $(window).resize(function(){
   var width = $(window).width();
-  if(width <= 768){
-    $("#computer-menu").css("display","none");
-    $("#cell-phone-menu").css("display","block");
+  if($(window).width() <= 1020){
+    $(".desktop-menu").css("display","none");
+    $(".mobile-menu").css("display","block");
   }else{
-    $("#cell-phone-menu").css("display","none");
-    $("#computer-menu").css("display","block");
+    $(".mobile-menu").css("display","none");
+    $(".desktop-menu").css("display","block");
   }
 });
